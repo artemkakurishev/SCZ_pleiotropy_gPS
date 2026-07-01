@@ -15,11 +15,17 @@ computation if a file is missing or has the wrong hash (fail-fast policy).
   md5 = `b9c5f67a83510d0d87f94981914f1a40`. Used by Fig 4.
 - `loeuf_gnomad_v41.tsv` — Per-Ensembl gnomAD v4.1 LOEUF table.
   md5 = `58c78cec40fb791268aeda6df346fbf4`. Used by Fig 2.
-  Extracted from gnomAD v4.1 `constraint_metrics.tsv`: MANE-select
-  transcript preferred, canonical as fallback; flag-filtered rows removed;
-  17,666 gene rows. Columns: `ensembl_id`, `gene_symbol`, `transcript_id`,
-  `loeuf`, `loeuf_lower`, `loeuf_rank`, `loeuf_decile`, `lof_oe`, `pli`,
-  `lof_obs`, `lof_exp`. Fig 2 consumes only `ensembl_id` and `loeuf`.
+ - `loeuf_gnomad_v41.tsv` — Per-Ensembl gnomAD v4.1 LOEUF table.
+  Source: `gs://gcp-public-data--gnomad/release/4.1/constraint/gnomad.v4.1.constraint_metrics.tsv`
+  (ETag `14df4b2acb581fcbbb2a82a3a555fd35`, 2024-04-18).
+  Derived by: keeping the Ensembl-anchored branch (`gene_id` starts with `ENSG`);
+  filtering to MANE-select with a canonical-Ensembl fallback for the 1,142 non-MANE genes;
+  dropping the 957 genes carrying any `constraint_flags` (equivalent to the v4.1.1
+  browser-side filter); renaming columns to `ensembl_id`, `gene_symbol`, `loeuf`,
+  `loeuf_lower`, `loeuf_rank`, `loeuf_decile`, `lof_oe`, `pli`, `lof_obs`, `lof_exp`.
+  Result: 17,666 unique Ensembl rows, 96.7% coverage of the SCZ MAGMA gene list.
+  Fig 2 consumes only `ensembl_id` and `loeuf`.
+  (The 7,653-vs-≈7,514 plotted-gene reconciliation lives in the top-level README.)
 
 ## Supplementary inputs extracted from the deposit / supplementary archive (3)
 
