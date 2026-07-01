@@ -1,0 +1,323 @@
+scenario	disease_id	disease_label	branch	id_status	manual_classification
+noPsych_core	EFO_0000677	mental or behavioural disorder	psychiatric (MONDO:0002025) + nervous-system (EFO:0000618)	resolved	
+noPsych_core	EFO_0001358	post-traumatic stress disorder	psychiatric (MONDO:0002025) + nervous-system (EFO:0000618)	resolved	
+noPsych_core	EFO_0003756	autism spectrum disorder	psychiatric (MONDO:0002025) + nervous-system (EFO:0000618)	resolved	
+noPsych_core	EFO_0003758	autism	psychiatric (MONDO:0002025) + nervous-system (EFO:0000618)	resolved	
+noPsych_core	EFO_0003888	attention deficit hyperactivity disorder	psychiatric (MONDO:0002025) + nervous-system (EFO:0000618)	resolved	
+noPsych_core	EFO_0004242	obsessive-compulsive disorder	psychiatric (MONDO:0002025) + nervous-system (EFO:0000618)	resolved	
+noPsych_core	EFO_0004247	mood disorder	psychiatric (MONDO:0002025) + nervous-system (EFO:0000618)	resolved	
+noPsych_core	EFO_0004895	Tourette syndrome	psychiatric (MONDO:0002025) + nervous-system (EFO:0000618)	resolved	
+noPsych_core	EFO_0005411	schizoaffective disorder	psychiatric (MONDO:0002025) + nervous-system (EFO:0000618)	resolved	
+noPsych_core	EFO_0006788	anxiety disorder	psychiatric (MONDO:0002025) + nervous-system (EFO:0000618)	resolved	
+noPsych_core	EFO_0008623	dysthymic disorder	psychiatric (MONDO:0002025) + nervous-system (EFO:0000618)	resolved	
+noPsych_core	EFO_0009963	bipolar I disorder	psychiatric (MONDO:0002025) + nervous-system (EFO:0000618)	resolved	
+noPsych_core	EFO_0010098	stress-related disorder	psychiatric (MONDO:0002025) + nervous-system (EFO:0000618)	resolved	
+noPsych_core	MONDO_0002009	major depressive disorder	psychiatric (MONDO:0002025) + nervous-system (EFO:0000618)	resolved	
+noPsych_core	MONDO_0002025	psychiatric disorder	psychiatric (MONDO:0002025)	resolved	
+noPsych_core	MONDO_0002050	depressive disorder	psychiatric (MONDO:0002025) + nervous-system (EFO:0000618)	resolved	
+noPsych_core	MONDO_0004985	bipolar disorder	psychiatric (MONDO:0002025) + nervous-system (EFO:0000618)	resolved	
+noPsych_core	MONDO_0005090	schizophrenia	psychiatric (MONDO:0002025) + nervous-system (EFO:0000618)	resolved	
+noPsych_core	MONDO_0005351	anorexia nervosa	psychiatric (MONDO:0002025) + nervous-system (EFO:0000618)	resolved	
+noPsych_OT	EFO_0000677	mental or behavioural disorder	psychiatric (MONDO:0002025) + nervous-system (EFO:0000618)	resolved	
+noPsych_OT	EFO_0001358	post-traumatic stress disorder	psychiatric (MONDO:0002025) + nervous-system (EFO:0000618)	resolved	
+noPsych_OT	EFO_0003756	autism spectrum disorder	psychiatric (MONDO:0002025) + nervous-system (EFO:0000618)	resolved	
+noPsych_OT	EFO_0003758	autism	psychiatric (MONDO:0002025) + nervous-system (EFO:0000618)	resolved	
+noPsych_OT	EFO_0003768	nicotine dependence	psychiatric (MONDO:0002025) + nervous-system (EFO:0000618)	resolved	
+noPsych_OT	EFO_0003877	sleep apnea	psychiatric (MONDO:0002025) + nervous-system (EFO:0000618)	resolved	
+noPsych_OT	EFO_0003888	attention deficit hyperactivity disorder	psychiatric (MONDO:0002025) + nervous-system (EFO:0000618)	resolved	
+noPsych_OT	EFO_0003890	drug dependence	psychiatric (MONDO:0002025) + nervous-system (EFO:0000618)	resolved	
+noPsych_OT	EFO_0003918	obstructive sleep apnea	psychiatric (MONDO:0002025) + nervous-system (EFO:0000618)	resolved	
+noPsych_OT	EFO_0004242	obsessive-compulsive disorder	psychiatric (MONDO:0002025) + nervous-system (EFO:0000618)	resolved	
+noPsych_OT	EFO_0004247	mood disorder	psychiatric (MONDO:0002025) + nervous-system (EFO:0000618)	resolved	
+noPsych_OT	EFO_0004698	insomnia	psychiatric (MONDO:0002025) + nervous-system (EFO:0000618)	resolved	
+noPsych_OT	EFO_0004718	vascular dementia	psychiatric (MONDO:0002025) + nervous-system (EFO:0000618)	resolved	
+noPsych_OT	EFO_0004895	Tourette syndrome	psychiatric (MONDO:0002025) + nervous-system (EFO:0000618)	resolved	
+noPsych_OT	EFO_0005246	hypersomnia	psychiatric (MONDO:0002025) + nervous-system (EFO:0000618)	resolved	
+noPsych_OT	EFO_0005411	schizoaffective disorder	psychiatric (MONDO:0002025) + nervous-system (EFO:0000618)	resolved	
+noPsych_OT	EFO_0005424	dyslexia	psychiatric (MONDO:0002025) + nervous-system (EFO:0000618)	resolved	
+noPsych_OT	EFO_0005611	opioid dependence	psychiatric (MONDO:0002025) + nervous-system (EFO:0000618)	resolved	
+noPsych_OT	EFO_0005924	binge eating	psychiatric (MONDO:0002025) + nervous-system (EFO:0000618)	resolved	
+noPsych_OT	EFO_0006788	anxiety disorder	psychiatric (MONDO:0002025) + nervous-system (EFO:0000618)	resolved	
+noPsych_OT	EFO_0006792	Lewy body dementia	psychiatric (MONDO:0002025) + nervous-system (EFO:0000618)	resolved	
+noPsych_OT	EFO_0007191	cannabis dependence	psychiatric (MONDO:0002025) + nervous-system (EFO:0000618)	resolved	
+noPsych_OT	EFO_0007462	REM sleep behavior disorder	psychiatric (MONDO:0002025) + nervous-system (EFO:0000618)	resolved	
+noPsych_OT	EFO_0008568	Sleep Disorder	psychiatric (MONDO:0002025) + nervous-system (EFO:0000618)	resolved	
+noPsych_OT	EFO_0008573	alcoholic liver disease	psychiatric (MONDO:0002025)	resolved	
+noPsych_OT	EFO_0008623	dysthymic disorder	psychiatric (MONDO:0002025) + nervous-system (EFO:0000618)	resolved	
+noPsych_OT	EFO_0009267	delirium	psychiatric (MONDO:0002025) + nervous-system (EFO:0000618)	resolved	
+noPsych_OT	EFO_0009963	bipolar I disorder	psychiatric (MONDO:0002025) + nervous-system (EFO:0000618)	resolved	
+noPsych_OT	EFO_0010098	stress-related disorder	psychiatric (MONDO:0002025) + nervous-system (EFO:0000618)	resolved	
+noPsych_OT	EFO_0010702	opioid use disorder	psychiatric (MONDO:0002025)	resolved	
+noPsych_OT	EFO_0011049	drug misuse	psychiatric (MONDO:0002025)	resolved	
+noPsych_OT	EFO_1000802	alcoholic liver cirrhosis	psychiatric (MONDO:0002025)	resolved	
+noPsych_OT	EFO_1001454	amnesia	psychiatric (MONDO:0002025) + nervous-system (EFO:0000618)	resolved	
+noPsych_OT	EFO_1001870	late-onset Alzheimers disease	psychiatric (MONDO:0002025) + nervous-system (EFO:0000618)	resolved	
+noPsych_OT	EFO_1002013	alcoholic pancreatitis	psychiatric (MONDO:0002025)	resolved	
+noPsych_OT	MONDO_0001160	dissociative disorder	psychiatric (MONDO:0002025)	resolved	
+noPsych_OT	MONDO_0001423	drug-induced mental disorder	psychiatric (MONDO:0002025) + nervous-system (EFO:0000618)	resolved	
+noPsych_OT	MONDO_0001627	dementia	psychiatric (MONDO:0002025) + nervous-system (EFO:0000618)	resolved	
+noPsych_OT	MONDO_0002009	major depressive disorder	psychiatric (MONDO:0002025) + nervous-system (EFO:0000618)	resolved	
+noPsych_OT	MONDO_0002025	psychiatric disorder	psychiatric (MONDO:0002025)	resolved	
+noPsych_OT	MONDO_0002028	personality disorder	psychiatric (MONDO:0002025)	resolved	
+noPsych_OT	MONDO_0002039	cognitive disorder	psychiatric (MONDO:0002025) + nervous-system (EFO:0000618)	resolved	
+noPsych_OT	MONDO_0002046	alcohol abuse	psychiatric (MONDO:0002025)	resolved	
+noPsych_OT	MONDO_0002050	depressive disorder	psychiatric (MONDO:0002025) + nervous-system (EFO:0000618)	resolved	
+noPsych_OT	MONDO_0002491	substance abuse	psychiatric (MONDO:0002025)	resolved	
+noPsych_OT	MONDO_0002494	substance-related disorder	psychiatric (MONDO:0002025)	resolved	
+noPsych_OT	MONDO_0003265	adjustment disorder	psychiatric (MONDO:0002025) + nervous-system (EFO:0000618)	resolved	
+noPsych_OT	MONDO_0004359	delusional disorder	psychiatric (MONDO:0002025) + nervous-system (EFO:0000618)	resolved	
+noPsych_OT	MONDO_0004975	Alzheimer disease	psychiatric (MONDO:0002025) + nervous-system (EFO:0000618)	resolved	
+noPsych_OT	MONDO_0004985	bipolar disorder	psychiatric (MONDO:0002025) + nervous-system (EFO:0000618)	resolved	
+noPsych_OT	MONDO_0005090	schizophrenia	psychiatric (MONDO:0002025) + nervous-system (EFO:0000618)	resolved	
+noPsych_OT	MONDO_0005351	anorexia nervosa	psychiatric (MONDO:0002025) + nervous-system (EFO:0000618)	resolved	
+noPsych_OT	MONDO_0007079	alcohol dependence	psychiatric (MONDO:0002025) + nervous-system (EFO:0000618)	resolved	
+noPsych_OT	MONDO_0011842	GRN-related frontotemporal lobar degeneration with Tdp43 inclusions	psychiatric (MONDO:0002025) + nervous-system (EFO:0000618)	resolved	
+noPsych_OT	MONDO_0016158	narcolepsy-cataplexy syndrome	psychiatric (MONDO:0002025) + nervous-system (EFO:0000618)	resolved	
+noPsych_OT	MONDO_0017276	frontotemporal dementia	psychiatric (MONDO:0002025) + nervous-system (EFO:0000618)	resolved	
+noPsych_OT	MONDO_0018899	posterior cortical atrophy	psychiatric (MONDO:0002025) + nervous-system (EFO:0000618)	resolved	
+noPsych_OT	MONDO_0021698	alcohol-related disorders	psychiatric (MONDO:0002025)	resolved	
+noPsych_OT	MONDO_0021699	alcohol-induced disorders	psychiatric (MONDO:0002025)	resolved	
+noPsych_OT	MONDO_0024290	enuresis	psychiatric (MONDO:0002025)	resolved	
+noPsych_OT	MONDO_0043224	multi-infarct dementia	psychiatric (MONDO:0002025) + nervous-system (EFO:0000618)	resolved	
+noPsychNoNerv	EFO_0000272	astrocytoma	nervous-system (EFO:0000618)	resolved	
+noPsychNoNerv	EFO_0000326	central nervous system cancer	nervous-system (EFO:0000618)	resolved	
+noPsychNoNerv	EFO_0000398	dermatomyositis	nervous-system (EFO:0000618)	resolved	
+noPsychNoNerv	EFO_0000474	epilepsy	nervous-system (EFO:0000618)	resolved	
+noPsychNoNerv	EFO_0000519	glioblastoma multiforme	nervous-system (EFO:0000618)	resolved	
+noPsychNoNerv	EFO_0000551	intracranial hemorrhage	nervous-system (EFO:0000618)	resolved	
+noPsychNoNerv	EFO_0000557	juvenile dermatomyositis	nervous-system (EFO:0000618)	resolved	
+noPsychNoNerv	EFO_0000618	nervous system disease	nervous-system (EFO:0000618)	resolved	
+noPsychNoNerv	EFO_0000621	neuroblastoma	nervous-system (EFO:0000618)	resolved	
+noPsychNoNerv	EFO_0000677	mental or behavioural disorder	psychiatric (MONDO:0002025) + nervous-system (EFO:0000618)	resolved	
+noPsychNoNerv	EFO_0000712	stroke	nervous-system (EFO:0000618)	resolved	
+noPsychNoNerv	EFO_0000713	subarachnoid hemorrhage	nervous-system (EFO:0000618)	resolved	
+noPsychNoNerv	EFO_0001054	leprosy	nervous-system (EFO:0000618)	resolved	
+noPsychNoNerv	EFO_0001357	sporadic amyotrophic lateral sclerosis	nervous-system (EFO:0000618)	resolved	
+noPsychNoNerv	EFO_0001358	post-traumatic stress disorder	psychiatric (MONDO:0002025) + nervous-system (EFO:0000618)	resolved	
+noPsychNoNerv	EFO_0001365	age-related macular degeneration	nervous-system (EFO:0000618)	resolved	
+noPsychNoNerv	EFO_0003063	polymyositis	nervous-system (EFO:0000618)	resolved	
+noPsychNoNerv	EFO_0003100	peripheral neuropathy	nervous-system (EFO:0000618)	resolved	
+noPsychNoNerv	EFO_0003108	essential tremor	nervous-system (EFO:0000618)	resolved	
+noPsychNoNerv	EFO_0003756	autism spectrum disorder	psychiatric (MONDO:0002025) + nervous-system (EFO:0000618)	resolved	
+noPsychNoNerv	EFO_0003758	autism	psychiatric (MONDO:0002025) + nervous-system (EFO:0000618)	resolved	
+noPsychNoNerv	EFO_0003763	cerebrovascular disorder	nervous-system (EFO:0000618)	resolved	
+noPsychNoNerv	EFO_0003764	transient ischemic attack	nervous-system (EFO:0000618)	resolved	
+noPsychNoNerv	EFO_0003768	nicotine dependence	psychiatric (MONDO:0002025) + nervous-system (EFO:0000618)	resolved	
+noPsychNoNerv	EFO_0003770	diabetic retinopathy	nervous-system (EFO:0000618)	resolved	
+noPsychNoNerv	EFO_0003780	Behcet's syndrome	nervous-system (EFO:0000618)	resolved	
+noPsychNoNerv	EFO_0003833	brain neoplasm	nervous-system (EFO:0000618)	resolved	
+noPsychNoNerv	EFO_0003839	retinopathy	nervous-system (EFO:0000618)	resolved	
+noPsychNoNerv	EFO_0003851	meningeal neoplasm	nervous-system (EFO:0000618)	resolved	
+noPsychNoNerv	EFO_0003870	brain aneurysm	nervous-system (EFO:0000618)	resolved	
+noPsychNoNerv	EFO_0003877	sleep apnea	psychiatric (MONDO:0002025) + nervous-system (EFO:0000618)	resolved	
+noPsychNoNerv	EFO_0003888	attention deficit hyperactivity disorder	psychiatric (MONDO:0002025) + nervous-system (EFO:0000618)	resolved	
+noPsychNoNerv	EFO_0003890	drug dependence	psychiatric (MONDO:0002025) + nervous-system (EFO:0000618)	resolved	
+noPsychNoNerv	EFO_0003918	obstructive sleep apnea	psychiatric (MONDO:0002025) + nervous-system (EFO:0000618)	resolved	
+noPsychNoNerv	EFO_0004143	carpal tunnel syndrome	nervous-system (EFO:0000618)	resolved	
+noPsychNoNerv	EFO_0004149	neuropathy	nervous-system (EFO:0000618)	resolved	
+noPsychNoNerv	EFO_0004213	otosclerosis	nervous-system (EFO:0000618)	resolved	
+noPsychNoNerv	EFO_0004226	Creutzfeldt Jacob Disease	nervous-system (EFO:0000618)	resolved	
+noPsychNoNerv	EFO_0004238	hearing loss	nervous-system (EFO:0000618)	resolved	
+noPsychNoNerv	EFO_0004242	obsessive-compulsive disorder	psychiatric (MONDO:0002025) + nervous-system (EFO:0000618)	resolved	
+noPsychNoNerv	EFO_0004247	mood disorder	psychiatric (MONDO:0002025) + nervous-system (EFO:0000618)	resolved	
+noPsychNoNerv	EFO_0004263	partial epilepsy	nervous-system (EFO:0000618)	resolved	
+noPsychNoNerv	EFO_0004270	restless legs syndrome	nervous-system (EFO:0000618)	resolved	
+noPsychNoNerv	EFO_0004280	movement disorder	nervous-system (EFO:0000618)	resolved	
+noPsychNoNerv	EFO_0004683	wet macular degeneration	nervous-system (EFO:0000618)	resolved	
+noPsychNoNerv	EFO_0004698	insomnia	psychiatric (MONDO:0002025) + nervous-system (EFO:0000618)	resolved	
+noPsychNoNerv	EFO_0004718	vascular dementia	psychiatric (MONDO:0002025) + nervous-system (EFO:0000618)	resolved	
+noPsychNoNerv	EFO_0004895	Tourette syndrome	psychiatric (MONDO:0002025) + nervous-system (EFO:0000618)	resolved	
+noPsychNoNerv	EFO_0004991	Myasthenia gravis	nervous-system (EFO:0000618)	resolved	
+noPsychNoNerv	EFO_0004992	Otitis media	nervous-system (EFO:0000618)	resolved	
+noPsychNoNerv	EFO_0005246	hypersomnia	psychiatric (MONDO:0002025) + nervous-system (EFO:0000618)	resolved	
+noPsychNoNerv	EFO_0005411	schizoaffective disorder	psychiatric (MONDO:0002025) + nervous-system (EFO:0000618)	resolved	
+noPsychNoNerv	EFO_0005424	dyslexia	psychiatric (MONDO:0002025) + nervous-system (EFO:0000618)	resolved	
+noPsychNoNerv	EFO_0005524	large artery stroke	nervous-system (EFO:0000618)	resolved	
+noPsychNoNerv	EFO_0005543	glioma	nervous-system (EFO:0000618)	resolved	
+noPsychNoNerv	EFO_0005611	opioid dependence	psychiatric (MONDO:0002025) + nervous-system (EFO:0000618)	resolved	
+noPsychNoNerv	EFO_0005669	intracerebral hemorrhage	nervous-system (EFO:0000618)	resolved	
+noPsychNoNerv	EFO_0005678	hippocampal sclerosis of aging	nervous-system (EFO:0000618)	resolved	
+noPsychNoNerv	EFO_0005772	neurodegenerative disease	nervous-system (EFO:0000618)	resolved	
+noPsychNoNerv	EFO_0005773	retinal detachment	nervous-system (EFO:0000618)	resolved	
+noPsychNoNerv	EFO_0005774	brain disease	nervous-system (EFO:0000618)	resolved	
+noPsychNoNerv	EFO_0005782	age-related hearing impairment	nervous-system (EFO:0000618)	resolved	
+noPsychNoNerv	EFO_0005917	generalised epilepsy	nervous-system (EFO:0000618)	resolved	
+noPsychNoNerv	EFO_0005924	binge eating	psychiatric (MONDO:0002025) + nervous-system (EFO:0000618)	resolved	
+noPsychNoNerv	EFO_0006545	brain glioblastoma	nervous-system (EFO:0000618)	resolved	
+noPsychNoNerv	EFO_0006788	anxiety disorder	psychiatric (MONDO:0002025) + nervous-system (EFO:0000618)	resolved	
+noPsychNoNerv	EFO_0006792	Lewy body dementia	psychiatric (MONDO:0002025) + nervous-system (EFO:0000618)	resolved	
+noPsychNoNerv	EFO_0006862	Meniere disease	nervous-system (EFO:0000618)	resolved	
+noPsychNoNerv	EFO_0007167	Bell's palsy	nervous-system (EFO:0000618)	resolved	
+noPsychNoNerv	EFO_0007191	cannabis dependence	psychiatric (MONDO:0002025) + nervous-system (EFO:0000618)	resolved	
+noPsychNoNerv	EFO_0007208	Churg-Strauss syndrome	nervous-system (EFO:0000618)	resolved	
+noPsychNoNerv	EFO_0007405	optic neuritis	nervous-system (EFO:0000618)	resolved	
+noPsychNoNerv	EFO_0007455	progressive multifocal leukoencephalopathy	nervous-system (EFO:0000618)	resolved	
+noPsychNoNerv	EFO_0007462	REM sleep behavior disorder	psychiatric (MONDO:0002025) + nervous-system (EFO:0000618)	resolved	
+noPsychNoNerv	EFO_0007503	suppurative otitis media	nervous-system (EFO:0000618)	resolved	
+noPsychNoNerv	EFO_0007537	vestibular neuronitis	nervous-system (EFO:0000618)	resolved	
+noPsychNoNerv	EFO_0008568	Sleep Disorder	psychiatric (MONDO:0002025) + nervous-system (EFO:0000618)	resolved	
+noPsychNoNerv	EFO_0008573	alcoholic liver disease	psychiatric (MONDO:0002025)	resolved	
+noPsychNoNerv	EFO_0008623	dysthymic disorder	psychiatric (MONDO:0002025) + nervous-system (EFO:0000618)	resolved	
+noPsychNoNerv	EFO_0009267	delirium	psychiatric (MONDO:0002025) + nervous-system (EFO:0000618)	resolved	
+noPsychNoNerv	EFO_0009363	chronic central serous retinopathy	nervous-system (EFO:0000618)	resolved	
+noPsychNoNerv	EFO_0009387	peripheral nervous system disease	nervous-system (EFO:0000618)	resolved	
+noPsychNoNerv	EFO_0009522	disturbance of skin sensation	nervous-system (EFO:0000618)	resolved	
+noPsychNoNerv	EFO_0009532	autonomic nervous system disease	nervous-system (EFO:0000618)	resolved	
+noPsychNoNerv	EFO_0009535	binocular vision disease	nervous-system (EFO:0000618)	resolved	
+noPsychNoNerv	EFO_0009550	headache disorder	nervous-system (EFO:0000618)	resolved	
+noPsychNoNerv	EFO_0009559	nerve plexus disease	nervous-system (EFO:0000618)	resolved	
+noPsychNoNerv	EFO_0009560	otitis externa	nervous-system (EFO:0000618)	resolved	
+noPsychNoNerv	EFO_0009562	polyneuropathy	nervous-system (EFO:0000618)	resolved	
+noPsychNoNerv	EFO_0009570	tympanic membrane disease	nervous-system (EFO:0000618)	resolved	
+noPsychNoNerv	EFO_0009584	AQP4-IgG-positive neuromyelitis optica	nervous-system (EFO:0000618)	resolved	
+noPsychNoNerv	EFO_0009606	macular degeneration	nervous-system (EFO:0000618)	resolved	
+noPsychNoNerv	EFO_0009607	pituitary gland disease	nervous-system (EFO:0000618)	resolved	
+noPsychNoNerv	EFO_0009667	eustachian tube disease	nervous-system (EFO:0000618)	resolved	
+noPsychNoNerv	EFO_0009668	external ear disease	nervous-system (EFO:0000618)	resolved	
+noPsychNoNerv	EFO_0009677	occlusion precerebral artery	nervous-system (EFO:0000618)	resolved	
+noPsychNoNerv	EFO_0009678	paralytic strabismus	nervous-system (EFO:0000618)	resolved	
+noPsychNoNerv	EFO_0009691	vestibular disease	nervous-system (EFO:0000618)	resolved	
+noPsychNoNerv	EFO_0009704	radiation-induced brain injury	nervous-system (EFO:0000618)	resolved	
+noPsychNoNerv	EFO_0009783	carotid atherosclerosis	nervous-system (EFO:0000618)	resolved	
+noPsychNoNerv	EFO_0009784	central serous retinopathy	nervous-system (EFO:0000618)	resolved	
+noPsychNoNerv	EFO_0009963	bipolar I disorder	psychiatric (MONDO:0002025) + nervous-system (EFO:0000618)	resolved	
+noPsychNoNerv	EFO_0010098	stress-related disorder	psychiatric (MONDO:0002025) + nervous-system (EFO:0000618)	resolved	
+noPsychNoNerv	EFO_0010133	diabetic maculopathy	nervous-system (EFO:0000618)	resolved	
+noPsychNoNerv	EFO_0010177	lobar intracerebral hemorrhage	nervous-system (EFO:0000618)	resolved	
+noPsychNoNerv	EFO_0010178	non-lobar intracerebral hemorrhage	nervous-system (EFO:0000618)	resolved	
+noPsychNoNerv	EFO_0010698	retinal break	nervous-system (EFO:0000618)	resolved	
+noPsychNoNerv	EFO_0010702	opioid use disorder	psychiatric (MONDO:0002025)	resolved	
+noPsychNoNerv	EFO_0011023	concussion	nervous-system (EFO:0000618)	resolved	
+noPsychNoNerv	EFO_0011049	drug misuse	psychiatric (MONDO:0002025)	resolved	
+noPsychNoNerv	EFO_1000107	Benign Brain Neoplasm	nervous-system (EFO:0000618)	resolved	
+noPsychNoNerv	EFO_1000158	Central Nervous System Neoplasm	nervous-system (EFO:0000618)	resolved	
+noPsychNoNerv	EFO_1000209	Craniopharyngioma	nervous-system (EFO:0000618)	resolved	
+noPsychNoNerv	EFO_1000244	Epithelioid Cell Uveal Melanoma	nervous-system (EFO:0000618)	resolved	
+noPsychNoNerv	EFO_1000478	Pituitary Gland Adenoma	nervous-system (EFO:0000618)	resolved	
+noPsychNoNerv	EFO_1000616	Uveal Melanoma	nervous-system (EFO:0000618)	resolved	
+noPsychNoNerv	EFO_1000656	sporadic Creutzfeld Jacob disease	nervous-system (EFO:0000618)	resolved	
+noPsychNoNerv	EFO_1000783	diabetic neuropathy	nervous-system (EFO:0000618)	resolved	
+noPsychNoNerv	EFO_1000802	alcoholic liver cirrhosis	psychiatric (MONDO:0002025)	resolved	
+noPsychNoNerv	EFO_1000859	cerebral arterial disease	nervous-system (EFO:0000618)	resolved	
+noPsychNoNerv	EFO_1000904	drug-Induced dyskinesia	nervous-system (EFO:0000618)	resolved	
+noPsychNoNerv	EFO_1000973	hyperpituitarism	nervous-system (EFO:0000618)	resolved	
+noPsychNoNerv	EFO_1001022	low tension glaucoma	nervous-system (EFO:0000618)	resolved	
+noPsychNoNerv	EFO_1001028	macular holes	nervous-system (EFO:0000618)	resolved	
+noPsychNoNerv	EFO_1001065	normal pressure hydrocephalus	nervous-system (EFO:0000618)	resolved	
+noPsychNoNerv	EFO_1001176	sensorineural hearing loss	nervous-system (EFO:0000618)	resolved	
+noPsychNoNerv	EFO_1001209	temporal arteritis	nervous-system (EFO:0000618)	resolved	
+noPsychNoNerv	EFO_1001454	amnesia	psychiatric (MONDO:0002025) + nervous-system (EFO:0000618)	resolved	
+noPsychNoNerv	EFO_1001455	auditory system disease	nervous-system (EFO:0000618)	resolved	
+noPsychNoNerv	EFO_1001490	late-onset myasthenia gravis	nervous-system (EFO:0000618)	resolved	
+noPsychNoNerv	EFO_1001492	atrophic macular degeneration	nervous-system (EFO:0000618)	resolved	
+noPsychNoNerv	EFO_1001504	small vessel stroke	nervous-system (EFO:0000618)	resolved	
+noPsychNoNerv	EFO_1001857	Takayasu arteritis	nervous-system (EFO:0000618)	resolved	
+noPsychNoNerv	EFO_1001870	late-onset Alzheimers disease	psychiatric (MONDO:0002025) + nervous-system (EFO:0000618)	resolved	
+noPsychNoNerv	EFO_1001902	neuromuscular disease	nervous-system (EFO:0000618)	resolved	
+noPsychNoNerv	EFO_1001976	cardioembolic stroke	nervous-system (EFO:0000618)	resolved	
+noPsychNoNerv	EFO_1001990	ocular motility disease	nervous-system (EFO:0000618)	resolved	
+noPsychNoNerv	EFO_1001998	complex regional pain syndrome	nervous-system (EFO:0000618)	resolved	
+noPsychNoNerv	EFO_1002009	macular telangiectasia type 2	nervous-system (EFO:0000618)	resolved	
+noPsychNoNerv	EFO_1002013	alcoholic pancreatitis	psychiatric (MONDO:0002025)	resolved	
+noPsychNoNerv	EFO_1002051	facial nerve disease	nervous-system (EFO:0000618)	resolved	
+noPsychNoNerv	HP_0002140	Ischemic stroke	nervous-system (EFO:0000618)	resolved	
+noPsychNoNerv	MONDO_0000648	nervous system benign neoplasm	nervous-system (EFO:0000618)	resolved	
+noPsychNoNerv	MONDO_0001020	amblyopia	nervous-system (EFO:0000618)	resolved	
+noPsychNoNerv	MONDO_0001160	dissociative disorder	psychiatric (MONDO:0002025)	resolved	
+noPsychNoNerv	MONDO_0001212	non-suppurative otitis media	nervous-system (EFO:0000618)	resolved	
+noPsychNoNerv	MONDO_0001291	brain compression	nervous-system (EFO:0000618)	resolved	
+noPsychNoNerv	MONDO_0001423	drug-induced mental disorder	psychiatric (MONDO:0002025) + nervous-system (EFO:0000618)	resolved	
+noPsychNoNerv	MONDO_0001539	retinal perforation	nervous-system (EFO:0000618)	resolved	
+noPsychNoNerv	MONDO_0001543	lesion of sciatic nerve	nervous-system (EFO:0000618)	resolved	
+noPsychNoNerv	MONDO_0001583	diabetic polyneuropathy	nervous-system (EFO:0000618)	resolved	
+noPsychNoNerv	MONDO_0001627	dementia	psychiatric (MONDO:0002025) + nervous-system (EFO:0000618)	resolved	
+noPsychNoNerv	MONDO_0001657	brain cancer	nervous-system (EFO:0000618)	resolved	
+noPsychNoNerv	MONDO_0001815	extrapyramidal and movement disease	nervous-system (EFO:0000618)	resolved	
+noPsychNoNerv	MONDO_0001834	visual pathway disorder	nervous-system (EFO:0000618)	resolved	
+noPsychNoNerv	MONDO_0002009	major depressive disorder	psychiatric (MONDO:0002025) + nervous-system (EFO:0000618)	resolved	
+noPsychNoNerv	MONDO_0002025	psychiatric disorder	psychiatric (MONDO:0002025)	resolved	
+noPsychNoNerv	MONDO_0002028	personality disorder	psychiatric (MONDO:0002025)	resolved	
+noPsychNoNerv	MONDO_0002039	cognitive disorder	psychiatric (MONDO:0002025) + nervous-system (EFO:0000618)	resolved	
+noPsychNoNerv	MONDO_0002046	alcohol abuse	psychiatric (MONDO:0002025)	resolved	
+noPsychNoNerv	MONDO_0002050	depressive disorder	psychiatric (MONDO:0002025) + nervous-system (EFO:0000618)	resolved	
+noPsychNoNerv	MONDO_0002089	retinal vascular occlusion	nervous-system (EFO:0000618)	resolved	
+noPsychNoNerv	MONDO_0002135	optic nerve disorder	nervous-system (EFO:0000618)	resolved	
+noPsychNoNerv	MONDO_0002172	otosalpingitis	nervous-system (EFO:0000618)	resolved	
+noPsychNoNerv	MONDO_0002175	degeneration of macula and posterior pole	nervous-system (EFO:0000618)	resolved	
+noPsychNoNerv	MONDO_0002311	retinal vascular disorder	nervous-system (EFO:0000618)	resolved	
+noPsychNoNerv	MONDO_0002317	central nervous system origin vertigo	nervous-system (EFO:0000618)	resolved	
+noPsychNoNerv	MONDO_0002491	substance abuse	psychiatric (MONDO:0002025)	resolved	
+noPsychNoNerv	MONDO_0002494	substance-related disorder	psychiatric (MONDO:0002025)	resolved	
+noPsychNoNerv	MONDO_0002633	cranial nerve neoplasm	nervous-system (EFO:0000618)	resolved	
+noPsychNoNerv	MONDO_0002907	intracranial thrombosis	nervous-system (EFO:0000618)	resolved	
+noPsychNoNerv	MONDO_0002959	radiculopathy	nervous-system (EFO:0000618)	resolved	
+noPsychNoNerv	MONDO_0003265	adjustment disorder	psychiatric (MONDO:0002025) + nervous-system (EFO:0000618)	resolved	
+noPsychNoNerv	MONDO_0003276	middle ear disorder	nervous-system (EFO:0000618)	resolved	
+noPsychNoNerv	MONDO_0004037	retinal edema	nervous-system (EFO:0000618)	resolved	
+noPsychNoNerv	MONDO_0004046	childhood brain meningioma	nervous-system (EFO:0000618)	resolved	
+noPsychNoNerv	MONDO_0004359	delusional disorder	psychiatric (MONDO:0002025) + nervous-system (EFO:0000618)	resolved	
+noPsychNoNerv	MONDO_0004579	retinoschisis	nervous-system (EFO:0000618)	resolved	
+noPsychNoNerv	MONDO_0004580	retinal degeneration	nervous-system (EFO:0000618)	resolved	
+noPsychNoNerv	MONDO_0004900	peripheral vertigo	nervous-system (EFO:0000618)	resolved	
+noPsychNoNerv	MONDO_0004975	Alzheimer disease	psychiatric (MONDO:0002025) + nervous-system (EFO:0000618)	resolved	
+noPsychNoNerv	MONDO_0004976	amyotrophic lateral sclerosis	nervous-system (EFO:0000618)	resolved	
+noPsychNoNerv	MONDO_0004985	bipolar disorder	psychiatric (MONDO:0002025) + nervous-system (EFO:0000618)	resolved	
+noPsychNoNerv	MONDO_0005090	schizophrenia	psychiatric (MONDO:0002025) + nervous-system (EFO:0000618)	resolved	
+noPsychNoNerv	MONDO_0005180	Parkinson disease	nervous-system (EFO:0000618)	resolved	
+noPsychNoNerv	MONDO_0005277	migraine disorder	nervous-system (EFO:0000618)	resolved	
+noPsychNoNerv	MONDO_0005301	multiple sclerosis	nervous-system (EFO:0000618)	resolved	
+noPsychNoNerv	MONDO_0005351	anorexia nervosa	psychiatric (MONDO:0002025) + nervous-system (EFO:0000618)	resolved	
+noPsychNoNerv	MONDO_0007079	alcohol dependence	psychiatric (MONDO:0002025) + nervous-system (EFO:0000618)	resolved	
+noPsychNoNerv	MONDO_0009696	juvenile myoclonic epilepsy	nervous-system (EFO:0000618)	resolved	
+noPsychNoNerv	MONDO_0010826	childhood absence epilepsy	nervous-system (EFO:0000618)	resolved	
+noPsychNoNerv	MONDO_0011842	GRN-related frontotemporal lobar degeneration with Tdp43 inclusions	psychiatric (MONDO:0002025) + nervous-system (EFO:0000618)	resolved	
+noPsychNoNerv	MONDO_0016158	narcolepsy-cataplexy syndrome	psychiatric (MONDO:0002025) + nervous-system (EFO:0000618)	resolved	
+noPsychNoNerv	MONDO_0016642	meningioma	nervous-system (EFO:0000618)	resolved	
+noPsychNoNerv	MONDO_0016820	Moyamoya disease	nervous-system (EFO:0000618)	resolved	
+noPsychNoNerv	MONDO_0017276	frontotemporal dementia	psychiatric (MONDO:0002025) + nervous-system (EFO:0000618)	resolved	
+noPsychNoNerv	MONDO_0018899	posterior cortical atrophy	psychiatric (MONDO:0002025) + nervous-system (EFO:0000618)	resolved	
+noPsychNoNerv	MONDO_0019037	progressive supranuclear palsy	nervous-system (EFO:0000618)	resolved	
+noPsychNoNerv	MONDO_0019201	thyrotoxic periodic paralysis	nervous-system (EFO:0000618)	resolved	
+noPsychNoNerv	MONDO_0019438	AL amyloidosis	nervous-system (EFO:0000618)	resolved	
+noPsychNoNerv	MONDO_0020476	mesial temporal lobe epilepsy with hippocampal sclerosis	nervous-system (EFO:0000618)	resolved	
+noPsychNoNerv	MONDO_0021081	anti-NMDA receptor encephalitis	nervous-system (EFO:0000618)	resolved	
+noPsychNoNerv	MONDO_0021454	benign neoplasm of eye	nervous-system (EFO:0000618)	resolved	
+noPsychNoNerv	MONDO_0021631	brain astrocytoma	nervous-system (EFO:0000618)	resolved	
+noPsychNoNerv	MONDO_0021698	alcohol-related disorders	psychiatric (MONDO:0002025)	resolved	
+noPsychNoNerv	MONDO_0021699	alcohol-induced disorders	psychiatric (MONDO:0002025)	resolved	
+noPsychNoNerv	MONDO_0021765	radiculitis	nervous-system (EFO:0000618)	resolved	
+noPsychNoNerv	MONDO_0022308	corticobasal degeneration disorder	nervous-system (EFO:0000618)	resolved	
+noPsychNoNerv	MONDO_0024290	enuresis	psychiatric (MONDO:0002025)	resolved	
+noPsychNoNerv	MONDO_0043224	multi-infarct dementia	psychiatric (MONDO:0002025) + nervous-system (EFO:0000618)	resolved	
+noPsychNoNerv	MONDO_0043510	brain injury	nervous-system (EFO:0000618)	resolved	
+noPsychNoNerv	MONDO_0044001	hearing loss, mixed conductive-sensorineural	nervous-system (EFO:0000618)	resolved	
+noPsychNoNerv	MONDO_0100114	dry age related macular degeneration	nervous-system (EFO:0000618)	resolved	
+noPsychNoNerv	MONDO_0100431	migraine without aura	nervous-system (EFO:0000618)	resolved	
+noPsychNoNerv	HP_0000726	Dementia	nervous-system (EFO:0000618)	null-returning	HP neurological phenotype — nervous system
+noPsychNoNerv	HP_0100537	Facial palsy	nervous-system (EFO:0000618)	null-returning	HP cranial nerve phenotype — nervous system
+null_classification_ledger	EFO_0003843	measurement	neither (not removed in any scenario)	null-returning	EFO measurement term, not a disease
+null_classification_ledger	EFO_0004233	measurement	neither (not removed in any scenario)	null-returning	EFO measurement term
+null_classification_ledger	EFO_0005230	measurement	neither (not removed in any scenario)	null-returning	EFO measurement term
+null_classification_ledger	EFO_0009012	measurement/trait	neither (not removed in any scenario)	null-returning	EFO trait term
+null_classification_ledger	EFO_0009447	measurement/trait	neither (not removed in any scenario)	null-returning	EFO trait term
+null_classification_ledger	EFO_0009715	measurement/trait	neither (not removed in any scenario)	null-returning	EFO trait term
+null_classification_ledger	EFO_1001919	measurement/trait	neither (not removed in any scenario)	null-returning	EFO trait term
+null_classification_ledger	HP_0000031	Epididymitis	neither (not removed in any scenario)	null-returning	HP urological phenotype
+null_classification_ledger	HP_0000099	Glomerulonephritis	neither (not removed in any scenario)	null-returning	HP renal phenotype
+null_classification_ledger	HP_0000175	Cleft palate	neither (not removed in any scenario)	null-returning	HP craniofacial phenotype
+null_classification_ledger	HP_0000202	Oral cleft	neither (not removed in any scenario)	null-returning	HP craniofacial phenotype
+null_classification_ledger	HP_0000545	Myopia	neither (not removed in any scenario)	null-returning	HP ophthalmological phenotype
+null_classification_ledger	HP_0000726	Dementia	nervous-system (EFO:0000618)	null-returning	HP neurological phenotype — nervous system
+null_classification_ledger	HP_0000934	Hypercholesterolemia	neither (not removed in any scenario)	null-returning	HP metabolic phenotype
+null_classification_ledger	HP_0001094	Iridocyclitis	neither (not removed in any scenario)	null-returning	HP ophthalmological phenotype
+null_classification_ledger	HP_0001634	Mitral valve prolapse	neither (not removed in any scenario)	null-returning	HP cardiovascular phenotype
+null_classification_ledger	HP_0001919	Acute kidney injury	neither (not removed in any scenario)	null-returning	HP renal phenotype
+null_classification_ledger	HP_0002107	Pneumothorax	neither (not removed in any scenario)	null-returning	HP respiratory phenotype
+null_classification_ledger	HP_0002110	Bronchiectasis	neither (not removed in any scenario)	null-returning	HP respiratory phenotype
+null_classification_ledger	HP_0002840	Lymphadenitis	neither (not removed in any scenario)	null-returning	HP immune phenotype
+null_classification_ledger	HP_0003077	Hyperlipidemia	neither (not removed in any scenario)	null-returning	HP metabolic phenotype
+null_classification_ledger	HP_0010566	Abnormal platelet count	neither (not removed in any scenario)	null-returning	HP hematological phenotype
+null_classification_ledger	HP_0011950	Bronchiolitis	neither (not removed in any scenario)	null-returning	HP respiratory phenotype
+null_classification_ledger	HP_0025246	Appendicitis	neither (not removed in any scenario)	null-returning	HP gastrointestinal phenotype
+null_classification_ledger	HP_0030160	Abnormal urine output	neither (not removed in any scenario)	null-returning	HP renal phenotype
+null_classification_ledger	HP_0100537	Facial palsy	nervous-system (EFO:0000618)	null-returning	HP cranial nerve phenotype — nervous system

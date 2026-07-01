@@ -1,0 +1,44 @@
+relpath	strand	md5	size_bytes	status	role
+README.md	deposit	d4c6031235b2f0f71b4ad7b2c5acdabd	8378	present	Top-level README and figure source map
+requirements.txt	deposit	6b2471fed67265cf76138d107984cc4a	364	present	Top-level Python 3.11 pin set
+code/01_fig1_gene_property.py	main	7c64d359e5e1d7b5b156599936879b38	12217	present	Figure 1 — 9-trait Model-A β_std forest
+code/02_fig2_hexbin_gradient.py	main	fbfdafadca51ec4f1f51e87359a1e851	13662	present	Figure 2 — LOEUF × gPS hexbin (LOEUF-gated)
+code/03_fig3_bootstrap_fdr5.py	main	d75c7dd6b2a2fa7d8003860eb4616b11	14110	present	Figure 3 — gPS-matched bootstrap stats (frozen)
+code/03_fig3_make_figure.py	main	a073ef223bb837706a28b3cf33d4ffeb	6757	present	Figure 3 — render bootstrap figure (frozen)
+code/04_fig4_schema_targets.py	main	fe78cdfaef16787403b7f768303350ea	14159	present	Figure 4 — SCHEMA × gPS × MAGMA Z bubble plot
+code/05_fig5_loo_sensitivity.py	main	83bedd1df9de680e48ebdb75ca2cced0	12188	present	Figure 5 — LOO line plot (SCZ vs BD)
+code/run_all.sh	main	16f4f5209c638b374cc3ffb64e1645af	1758	present	Wrapper script: runs every figure script in order
+code/magma_pipeline.md	deposit	dfd966e3a85909f392b12a04c6ec343e	4502	present	MAGMA execution record (commands used to generate inputs/*gene_annotation_table.tsv)
+inputs/gene_annotation_table.tsv	shared	6b308a7d300f9de33f6f458fdab9c79a	788656	present	SCZ3 MAGMA gene-level table + gPS (used by Fig 2, 3)
+inputs/bip_gene_annotation_table.tsv	shared	c944322ea7c6a489a7229411162761c0	1766878	present	BIP2021 MAGMA gene-level table + gPS (used by Fig 2)
+inputs/schema_pav_gps_table.tsv	main	b9c5f67a83510d0d87f94981914f1a40	5161	present	SCHEMA FDR<0.1 PTV genes annotated (Fig 4)
+inputs/gp_results_big9.tsv	main	b83619c51e4a433c39feea9e259852b7	1242	present	MAGMA gene-property results, 9 traits × 2 models (Fig 1)
+inputs/loo_gps_sensitivity_frontiers.tsv	main	16b15719d497627f8cc8dee92f4ddedf	646	present	Frontiers Suppl Table S3 — LOO sensitivity (Fig 5)
+inputs/removed_disease_ledger.tsv	audit	8f50071e5ad3e832b66abbb403a583aa	32604	present	Frontiers Suppl Table S4 — removed-disease audit ledger
+inputs/disease_ta_index_pandas.csv	main	03b7c1e7fc211cd69c6d00141bff20b0	1589679	present	Open Targets / Gentropy gPS source table (Fig 3)
+inputs/l2g_diseases_full.csv	main	f426e77b1bb71e4136d2577dc4dd6215	11148060	present	Open Targets L2G predictions, filtered (Fig 3)
+inputs/EXTERNAL_INPUTS_README.md	deposit	97f1505ad6009e9ce3cb520d1e3328e5	2291	present	Per-file provenance walk-through for inputs/
+inputs/SCHEMA_absent_from_MAGMA.md	deposit	45c01cfef3c53e88c312f9551c1d1cce	1666	present	5 SCHEMA genes excluded from Fig 4 (no MAGMA Z)
+metadata/inputs_manifest.tsv	deposit	36e084e7785dd8d96271a69aa6bc6a64	6073	present	Per-input provenance + MD5 ground truth
+metadata/requirements.txt	deposit	3990f75f0e05ed46fb81b7fe24eb95c0	371	present	Full deposit-time pip freeze
+results/figure1_gene_property.pdf	main	c1b79a2610fd43316c60c9a3f9889985	51368	present	Figure 1 — vector (PDF)
+results/figure1_gene_property.svg	main	b1ac10bb2a3bc77621b96ded86f863b8	28306	present	Figure 1 — vector (SVG, editable text)
+results/figure1_gene_property.png	main	88c013698fbd4b06c43503a371b58b29	246094	present	Figure 1 — raster (PNG, 300 dpi)
+results/figure1_gene_property_data.tsv	main	3a8581f63e9db3049738248833bae506	1272	present	Figure 1 — rendered numeric data (9 rows)
+results/figure2_hexbin_gradient.pdf	main	13fe6fbfd0411ae4ba025b8f8b943235	53872	present	Figure 2 — vector (PDF)
+results/figure2_hexbin_gradient.svg	main	aefbe192b9982fd77cd2d9feb404a381	50371	present	Figure 2 — vector (SVG, editable text)
+results/figure2_hexbin_gradient.png	main	fb9427c7890188e801394e6b117f04fe	308870	present	Figure 2 — raster (PNG, 300 dpi)
+results/figure2_hexbin_gradient_data.tsv	main	4b18888fc7004de5e279c2f99831ca12	448470	present	Figure 2 — rendered numeric data (7,653 plottable genes)
+results/figure3_bootstrap_stats.tsv	main	973d3d249d9705c9288ff11f6a8d1454	493	present	Figure 3 — bootstrap stats (5 disease axes)
+results/figure3_bootstrap_fdr5.pdf	main	f9a6dc5fdbec2c3810abe6bab4151f75	40644	present	Figure 3 — vector (PDF)
+results/figure3_bootstrap_fdr5.svg	main	3aba32626b812783b0d0d308d19e7aec	23191	present	Figure 3 — vector (SVG)
+results/figure3_bootstrap_fdr5.png	main	b5363dac9ca1d99b3ad4f0c7c1058562	209722	present	Figure 3 — raster (PNG, 300 dpi)
+results/figure4_schema_targets.pdf	visual_only	4fc1d92a6ff1655f0528f7c431403be3	41987	present	Figure 4 — vector (PDF)
+results/figure4_schema_targets.svg	visual_only	739b74ba74c20e58b97688e23a2ed2c3	48017	present	Figure 4 — vector (SVG)
+results/figure4_schema_targets.png	visual_only	641189c5390a14cb8f9295f165a8559d	388270	present	Figure 4 — raster (PNG, 300 dpi)
+results/figure4_schema_targets_data.tsv	main	6e36b737118ad1311e86d517a32beb5a	3225	present	Figure 4 — rendered numeric data (29 plottable genes)
+results/figure5_loo_sensitivity.pdf	main	31f25b48d728352640d8e8e9985fcdd9	48293	present	Figure 5 — vector (PDF)
+results/figure5_loo_sensitivity.svg	main	b64045c56d51f75bd8f0300faa1e75ee	25890	present	Figure 5 — vector (SVG)
+results/figure5_loo_sensitivity.png	main	045004a9897c43cf6c0f3f84774d408e	208519	present	Figure 5 — raster (PNG, 300 dpi)
+results/figure5_loo_sensitivity_data.tsv	main	4e1fbdc9c05b763d46fecce989ee4013	921	present	Figure 5 — rendered numeric data (8 rows)
+inputs/loeuf_gnomad_v41.tsv	shared	58c78cec40fb791268aeda6df346fbf4	1597014	present	gnomAD v4.1 LOEUF table (Ensembl-anchored MANE+canonical, flag-filtered) — required by Figure 2

@@ -1,0 +1,6 @@
+axis	scz_obs_pct	bg_mean_pct	residual_mean	ci_lo	ci_hi	p_gt_zero	p_two_sided	q_bh	verdict
+T2D	13.3858	11.7336	1.6523	0.0984	3.1496	0.9820	0.0320	0.0400	FDR excess
+CAD	2.8543	4.9469	-2.0926	-3.0536	-1.2771	0.0000	0.0010	0.0017	FDR depletion
+Hypertension	5.4134	4.8043	0.6091	-0.3937	1.6732	0.8600	0.2478	0.2478	borderline / null
+Asthma	3.7402	5.2933	-1.5531	-2.5591	-0.5906	0.0000	0.0010	0.0017	FDR depletion
+Prostate Ca	3.0512	6.0348	-2.9837	-4.2323	-1.8701	0.0000	0.0010	0.0017	FDR depletion

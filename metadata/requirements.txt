@@ -1,0 +1,13 @@
+# Pinned versions for the PeerJ refactor pipeline
+# Python 3.11, Debian 12
+#
+# These are the strict version pins required by the brief; the deposit's
+# requirements_frozen.txt remains as the full environment capture.
+numpy==2.1.0
+pandas==2.3.3
+matplotlib==3.11.0
+statsmodels==0.14.6
+
+# Additional transitive dependencies actually imported by the scripts
+scipy
+adjustText
