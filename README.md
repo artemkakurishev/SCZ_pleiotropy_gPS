@@ -98,54 +98,27 @@ label-repulsion drift falls within that allowance.
 Files that intentionally drift are flagged in `MANIFEST.tsv` with
 `strand=visual_only` (currently just the three Fig 4 image files). The MANIFEST snapshot still records the current MD5s of these files, but a downstream automated MD5 audit should treat `visual_only` rows as informational, not contractual. All TSVs, the bootstrap stats, scripts, and other rendered figures remain MD5-stable.
 
-## Notes on Figure 1 trait order
+## Figure-specific reproduction notes
 
-The 9-trait forest in Figure 1 displays traits in the **published manuscript
-order** (Height → IBD → MDD → SCZ → ADHD → BD → OCD† → ASD → PD), which is
-NOT strictly descending β_std (a strict descending sort would put IBD before
-Height, since β_std(IBD)=0.182 > β_std(Height)=0.164). The published order
-groups the polygenic positive control (Height) first, then the non-psychiatric
-disease (IBD), then descending β_std within the psychiatric block, and finally
-the neurological/neuro-developmental traits. This matches the published
-Figure 1 verbatim; see `code/01_fig1_gene_property.py` docstring for the
-explicit ordering decision.
+**Figure 1** — Trait order is the published display order
+(Height → IBD → MDD → SCZ → ADHD → BD → OCD† → ASD → PD), not a strict
+descending-β_std sort. Rationale: `code/01_fig1_gene_property.py` docstring.
 
-## Notes on Figure 4 filtering
+**Figure 4** — 29 of the 34 SCHEMA FDR<0.1 PTV genes are plotted; the 5
+without a MAGMA Z-score cannot be positioned and are removed by
+`schema_category=='PTV' & schema_fdr<0.1 & scz_source!='absent'`.
+Excluded genes: `inputs/SCHEMA_absent_from_MAGMA.md`.
 
-The published Figure 4 panel renders 29 of the 34 SCHEMA FDR<0.1 PTV genes;
-the 5 SCHEMA genes absent from MAGMA (`GRIA3`, `SLF2`, `H1-4`, `MAGEC1`,
-`EIF2S3`) are excluded — they have no gene-level Z-score to position
-against. The filter is `schema_category=='PTV' & schema_fdr<0.1 &
-scz_source!='absent'` and is documented in
-`inputs/SCHEMA_absent_from_MAGMA.md`.
+**Figure 5** — `SE` in `loo_gps_sensitivity_frontiers.tsv` (Suppl.
+Table S3) is already the SE of `beta_std`, so CIs are `beta_std ± 1.96 × SE`
+with no rescaling. This differs from Figure 1, where `se` is on the
+*unstandardized* β scale (see the `01_fig1_gene_property.py` docstring).
 
-## Notes on Figure 5 SE column
-
-`loo_gps_sensitivity_frontiers.tsv` (Frontiers Supplementary Table S3)
-reports `SE` as the standard error of `beta_std` directly (i.e. it is
-already on the standardized scale), so 95% CIs are computed as
-`beta_std ± 1.96 × SE` without any rescaling. This differs from Figure 1's
-`gp_results_big9.tsv`, where `se` is the SE of the unstandardized
-β (see the `01_fig1_gene_property.py` docstring for the per-trait scaling
-note).
-
-## Notes on the LOEUF input (Figure 2)
-
-`inputs/loeuf_gnomad_v41.tsv` is a tidy gene-level slice of the public
-`gnomad.v4.1.constraint_metrics.tsv` table
-(`gs://gcp-public-data--gnomad/release/4.1/constraint/`, ETag
-`14df4b2acb581fcbbb2a82a3a555fd35`, dated 2024-04-18). The slice keeps
-the Ensembl-anchored branch of the gnomAD file (gene_id starts with
-`ENSG`), filters to MANE-select with a canonical-Ensembl fallback for the
-1,142 non-MANE genes, drops the 957 genes that carry any `constraint_flags`
-(equivalent to the v4.1.1 browser-side filter), and renames columns to
-`ensembl_id`, `gene_symbol`, `loeuf`, `loeuf_lower`, `loeuf_rank`,
-`loeuf_decile`, `lof_oe`, `pli`, `lof_obs`, `lof_exp`. The result is
-17,666 unique Ensembl gene rows covering 96.7% of the SCZ MAGMA gene
-list. After the SCZ ∩ BIP ∩ LOEUF inner merge in Figure 2, 7,653 genes
-are plotted (vs the manuscript's reported ≈7,514; the +139 difference
-is the price of including the 185 non-MANE canonical Ensembl rows and
-falls inside the script's ±200-gene soft-warning tolerance).
+**Figure 2 (LOEUF input)** — After the SCZ ∩ BIP ∩ LOEUF merge, 7,653 genes
+are plotted vs the manuscript's ≈7,514; the +139 difference is the price of
+including non-MANE canonical-Ensembl rows and falls inside the script's
+±200-gene tolerance. Full derivation of `loeuf_gnomad_v41.tsv`:
+`inputs/EXTERNAL_INPUTS_README.md`.
 
 ## Contact
 
