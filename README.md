@@ -110,8 +110,11 @@ python code/figure3_ld/plot_figure3.py --from-recomputed
 The full re-run writes `results/figure3_ld/recomputed/` and halts on any
 discrepancy with the frozen tables beyond storage precision; the
 `--from-recomputed` figure mode refuses to plot from an unverified
-recomputation. Executed end-to-end for this deposit, all five recomputed
-tables were byte-identical to the frozen ones. Figure 3 outputs land in
+recomputation. Executed end-to-end for this deposit, all six recomputed
+tables match the frozen ones — five byte-identical at storage precision, and
+the realised gene-level gPS diagnostic table
+(`Table_realised_genelevel_gps.tsv`, 39 occupied bins) byte-identical
+(429/429 cells). Figure 3 outputs land in
 `results/figure3_ld/` (`Fig3.tif/.pdf/.svg`, a standalone Panel B, and the
 Panel-B source table).
 

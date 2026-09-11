@@ -15,6 +15,11 @@
     "mode": "RGB",
     "n_channels": 3,
     "has_alpha": false,
+    "bits_per_sample": [
+      8,
+      8,
+      8
+    ],
     "compression": "tiff_lzw",
     "n_pages": 1,
     "file_size_MB": 0.668

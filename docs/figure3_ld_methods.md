@@ -180,17 +180,57 @@ upward shift of the null mean as block structure and then T2D-ledger exclusion
 are added — the variance barely changes. It would be incorrect to describe the
 conclusion change as "the LD correction widened the null"; it did not.
 
+## Matching diagnostics, occupancy, and filter audit
+
+These diagnostics mirror the authoritative methods prose
+(`methods_final_ld_gps.md`, sha256
+`7acbd3ad64dd10695824890ecb94130e3d4c6ddb60464103240f6cdd29e02378`); the
+realised gene-level values are reproduced cell-for-cell in
+`Table_realised_genelevel_gps.tsv` (see "Reproduction result").
+
+**Matching adequacy.** Across the 10,000 primary-null sets, the realised
+gene-level gPS mean matched the risk set to within ± 0.05 log2(gPS+1) units in
+**100%** of sets (requirement ≥ 95%). At the distribution level the match is
+approximate: the median total-variation distance between the realised-null and
+risk-set gPS distributions was **0.165**, with **17 of 39** occupied bins lying
+outside the 95% bin-level envelope and a net upward borrowing of **16.1%** from
+neighbouring bins. The null is therefore described as matched on **mean** gPS,
+not on the full gPS distribution.
+
+**Block occupancy.** The observed risk genes occupy **433** LD blocks, whereas
+primary-null sets occupy **398.0** blocks on average (95% range **377–419**).
+An indicative, linearity-based estimate places the effect of this occupancy
+difference on the T2D residual at approximately **+0.45 percentage points**
+toward the null; no qualitative five-axis conclusion is affected.
+
+**Acceptance-filter audit.** Removing the ± 25-gene acceptance filter changes
+the null standard deviations by ≤ 1.18%; the filter has no material effect on
+inference.
+
 ## Reproduction result (this deposit)
 
 `python code/figure3_ld/run_analysis.py --full` was executed end-to-end. All
-five recomputed tables are **byte-identical** to the frozen tables in
-`data/figure3_ld/frozen/` (80/80 comparison checks PASS; see
-`results/figure3_ld/recomputed/comparison_report.md`). The figure rendered from
-the recomputed tables is identical in plotted values to the figure rendered
-from the frozen tables (the assertion battery locks every plotted number); the
-TIFF is not byte-identical to the submission figure only because genuine Arial
-is not installed in this environment and the metric-compatible Arimo is used —
-geometry shifts by ≤ 4 px, all plotted values unchanged.
+**six** recomputed tables match the frozen tables in `data/figure3_ld/frozen/`
+— five byte-identical at storage precision and the sixth,
+`Table_realised_genelevel_gps.tsv`, **byte-identical** (file sha256
+`b968d9f4…`; 429/429 cells identical across the 39 occupied gPS bins). Every
+comparison check PASSes (0 FAIL; see
+`results/figure3_ld/recomputed/comparison_report.md`).
+
+The realised gene-level table is built from the per-set gene identities
+recorded by an **additional** `run_block_null_rec` pass run alongside the
+untouched primary `run_block_null` (same seed, spawn-key `(2,)`). A named gate
+(`recorder_bit_identity`) asserts the recorder's null matrix is bit-identical
+to the primary's (max|Δsizes| 0, max|Δmeans| 0, max|Δpcts| 0) before the
+recorded gene identities are used; on any drift the run halts and reports the
+magnitude. The primary path is never modified to obtain the diagnostic.
+
+The figure rendered from the recomputed tables is identical in plotted values
+to the figure rendered from the frozen tables (the assertion battery locks
+every plotted number); the TIFF is not byte-identical to the submission figure
+only because genuine Arial is not installed in this environment and the
+metric-compatible Arimo is used — geometry shifts by ≤ 4 px, all plotted
+values unchanged.
 
 ## Inputs and provenance
 

@@ -1,5 +1,8 @@
 # Comparison: recomputed vs frozen LD-block tables
 
+## Recorder bit-identity gate (Amendment 1)
+- recorder_bit_identity: additional `run_block_null_rec` pass vs primary `run_block_null` (same seed, spawn_key (2,)) — max|Δsizes| 0, max|Δmeans| 0.000e+00, max|Δpcts| 0.000e+00 -> PASS (bit-identical; recorded gene_ids are the primary null's)
+
 Frozen inputs verified against `data/figure3_ld/frozen/SHA256SUMS.txt` before comparison.
 - frozen SHA256 integrity: PASS
 
@@ -91,6 +94,10 @@ Frozen inputs verified against `data/figure3_ld/frozen/SHA256SUMS.txt` before co
 
 ## null_axis_percentages_block_gps_matched.tsv
 - max|diff| after %.6f rounding: 0.000e+00 -> PASS (bit-identical at stored precision)
+
+## Table_realised_genelevel_gps.tsv
+- byte-identity sha256: recomputed `b968d9f449b9b1f71afa5e4cfee898743b1b92137f2035a3a8848bcc0b7d361c` vs frozen `b968d9f449b9b1f71afa5e4cfee898743b1b92137f2035a3a8848bcc0b7d361c` -> PASS
+- per-cell tally: 429/429 cells identical (39 rows x 11 columns)
 
 ## Gene sets
 - universe n=7707; risk n=1016; pool n=3,605 (asserted during setup; HALT on mismatch)

@@ -483,16 +483,25 @@ def save_figure(fig, stem, png_name=None, make_tif=True):
             comp = im.info.get("compression", "")
             n_pages = getattr(im, "n_frames", 1)
             mode, bands = im.mode, im.getbands()
+            try:
+                bits = im.tag_v2.get(258)  # TIFF BitsPerSample (tag 258)
+            except Exception:
+                bits = None
+        if isinstance(bits, int):
+            bits = (bits,)
         rec.update({
             "file": tif.name, "width_in": round(w_px / dpi_x, 3),
             "height_in": round(h_px / dpi_y, 3), "dpi_x": dpi_x, "dpi_y": dpi_y,
             "mode": mode, "n_channels": len(bands), "has_alpha": ("A" in bands),
+            "bits_per_sample": (list(bits) if bits else "8 (Pillow RGB mode)"),
             "compression": comp, "n_pages": n_pages, "file_size_MB": round(mb, 3),
         })
         assert 2.63 <= rec["width_in"] <= 7.5, f'{stem}: width {rec["width_in"]} in'
         assert rec["height_in"] <= 8.75, f'{stem}: height {rec["height_in"]} in'
         assert 300 <= dpi_x <= 600 and dpi_x == dpi_y, f"{stem}: dpi {dpi_x}/{dpi_y}"
+        # RGB 8-bit, 3 channels, no alpha (Pillow "RGB" mode is 8-bit/channel)
         assert mode == "RGB" and len(bands) == 3 and not rec["has_alpha"]
+        assert bits is None or tuple(bits) == (8, 8, 8), f"{stem}: BitsPerSample {bits}"
         assert comp == "tiff_lzw" and n_pages == 1 and mb < 10
     return rec
 

@@ -1,5 +1,5 @@
 relpath	strand	md5	size_bytes	status	role
-README.md	deposit	f124252d2cd8160610fd8165c95f5ac1	10308	present	Top-level README and figure source map
+README.md	deposit	5b7fe92138ca07498b3e084c7db4188e	10471	present	Top-level README and figure source map
 requirements.txt	deposit	696230b155a6e4bf4fd21c94e20d5772	377	present	Top-level Python 3.11 pin set
 code/01_fig1_gene_property.py	main	7c64d359e5e1d7b5b156599936879b38	12217	present	Figure 1 — 9-trait Model-A β_std forest
 code/02_fig2_hexbin_gradient.py	main	fbfdafadca51ec4f1f51e87359a1e851	13662	present	Figure 2 — LOEUF × gPS hexbin (LOEUF-gated)
@@ -17,9 +17,9 @@ inputs/loo_gps_sensitivity_frontiers.tsv	main	16b15719d497627f8cc8dee92f4ddedf	6
 inputs/removed_disease_ledger.tsv	audit	8f50071e5ad3e832b66abbb403a583aa	32604	present	Frontiers Suppl Table S4 — removed-disease audit ledger
 inputs/disease_ta_index_pandas.csv	main	03b7c1e7fc211cd69c6d00141bff20b0	1589679	present	Open Targets / Gentropy gPS source table (Fig 3)
 inputs/l2g_diseases_full.csv	main	f426e77b1bb71e4136d2577dc4dd6215	11148060	present	Open Targets L2G predictions, filtered (Fig 3)
-inputs/EXTERNAL_INPUTS_README.md	deposit	97f1505ad6009e9ce3cb520d1e3328e5	2291	present	Per-file provenance walk-through for inputs/
+inputs/EXTERNAL_INPUTS_README.md	deposit	397804f80ed7ea6558888308b68d2da5	2792	present	Per-file provenance walk-through for inputs/
 inputs/SCHEMA_absent_from_MAGMA.md	deposit	45c01cfef3c53e88c312f9551c1d1cce	1666	present	5 SCHEMA genes excluded from Fig 4 (no MAGMA Z)
-metadata/inputs_manifest.tsv	deposit	36e084e7785dd8d96271a69aa6bc6a64	6073	present	Per-input provenance + MD5 ground truth
+metadata/inputs_manifest.tsv	deposit	1528840ac1feb65bd71f7791813ce677	7461	present	Per-input provenance + MD5 ground truth
 metadata/requirements.txt	deposit	3990f75f0e05ed46fb81b7fe24eb95c0	371	present	Full deposit-time pip freeze
 results/figure1_gene_property.pdf	main	c1b79a2610fd43316c60c9a3f9889985	51368	present	Figure 1 — vector (PDF)
 results/figure1_gene_property.svg	main	b1ac10bb2a3bc77621b96ded86f863b8	28306	present	Figure 1 — vector (SVG, editable text)
@@ -42,8 +42,8 @@ results/figure5_loo_sensitivity.svg	main	b64045c56d51f75bd8f0300faa1e75ee	25890	
 results/figure5_loo_sensitivity.png	main	045004a9897c43cf6c0f3f84774d408e	208519	present	Figure 5 — raster (PNG, 300 dpi)
 results/figure5_loo_sensitivity_data.tsv	main	4e1fbdc9c05b763d46fecce989ee4013	921	present	Figure 5 — rendered numeric data (8 rows)
 inputs/loeuf_gnomad_v41.tsv	shared	58c78cec40fb791268aeda6df346fbf4	1597014	present	gnomAD v4.1 LOEUF table (Ensembl-anchored MANE+canonical, flag-filtered) — required by Figure 2
-code/figure3_ld/run_analysis.py	main	3afb017ccb921dea2cb7cda0f2693f70	42361	present	Figure 3 A/B — LD-block full re-run + frozen comparison (CURRENT)
-code/figure3_ld/plot_figure3.py	main	3acaaae98094b53194af10904c6e3439	29365	present	Figure 3 A/B — render figure, fast / from-recomputed (CURRENT)
+code/figure3_ld/run_analysis.py	main	92a76025c7f7bec0daee7b3f749e9671	49871	present	Figure 3 A/B — LD-block full re-run + frozen comparison (CURRENT)
+code/figure3_ld/plot_figure3.py	main	e55fab48458affcb34b6471a0c0ed6d1	29823	present	Figure 3 A/B — render figure, fast / from-recomputed (CURRENT)
 code/figure3_ld/config.json	main	f0c54825bf1d9a34565a11fd687381b8	5271	present	Figure 3 A/B — analysis constants transferred verbatim from original code
 code/figure3_ld/sampler.py	main	90a0ad89aba97e0b735c074fa9968270	7556	present	Figure 3 A/B — LD-block sampler (original, unchanged)
 code/figure3_ld/sampler_v5.py	main	302eceb92675ef883356c0e8b74721dd	4919	present	Figure 3 A/B — v5 sampler extensions (original, unchanged)
@@ -55,18 +55,19 @@ data/figure3_ld/frozen/Figure3B_main_source_data.tsv	main	50b119160071063519643d
 data/figure3_ld/frozen/Table_S_block_vs_gene_bootstrap.tsv	main	d2ddf0162ecdc728db1e68005d7b85ac	1340	present	Figure 3 A/B — frozen 8-axis block-vs-gene table
 data/figure3_ld/frozen/Table_final_five_axis_exact_gps_minus_d.tsv	main	305e50334d116564fb5ac3810f5f1ff3	1976	present	Figure 3 A/B — frozen exact gPS^(-d) table
 data/figure3_ld/frozen/Table_final_five_axis_sensitivity.tsv	main	6d245ea95773c20200b7d9c272a68350	5119	present	Figure 3 A/B — frozen 5-axis x 4-spec sensitivity table
+data/figure3_ld/frozen/Table_realised_genelevel_gps.tsv	main	9cbf1f82853625c5fe11fdfa8f5a8f02	2080	present	Figure 3 A/B — frozen realised gene-level gPS diagnostic (39 occupied bins)
 data/figure3_ld/frozen/null_axis_percentages_block_gps_matched.tsv	main	f4ce10cb2fe8df861bc191cfff6d807e	778947	present	Figure 3 A/B — frozen 10,000 x 8 null matrix
-data/figure3_ld/frozen/SHA256SUMS.txt	main	0d7b79d8ed1c13e422cf2089f44915eb	522	present	Figure 3 A/B — SHA256 manifest for the frozen tables
-docs/figure3_ld_methods.md	deposit	7cb72bac5d5eccbf17688f6956a56729	11610	present	Figure 3 A/B — method as executed + reproduction commands
+data/figure3_ld/frozen/SHA256SUMS.txt	main	c755240853bfa1029273dbd5f527e175	621	present	Figure 3 A/B — SHA256 manifest for the frozen tables
+docs/figure3_ld_methods.md	deposit	bd5d4ebde80b9db56a5916c6437ee745	13810	present	Figure 3 A/B — method as executed + reproduction commands
 results/figure3_ld/Fig3.tif	visual_only	d4106dc05bc4615cb621f0b4265bf85d	667594	present	Figure 3 A/B — TIFF (600 dpi LZW RGB; pixels font-dependent)
-results/figure3_ld/Fig3.pdf	visual_only	75738f4abd7c0c1b43c1da09fc4ec188	21159	present	Figure 3 A/B — vector (PDF)
-results/figure3_ld/Fig3.svg	visual_only	cbc4260ff75d54abb1ebd8d9a9bafe0e	21767	present	Figure 3 A/B — vector (SVG, editable text)
+results/figure3_ld/Fig3.pdf	visual_only	e630cd18e80a41f33af3ccc5b47a1780	21159	present	Figure 3 A/B — vector (PDF)
+results/figure3_ld/Fig3.svg	visual_only	cb9d6d18679e6f6ab730e3340ac3b58f	21767	present	Figure 3 A/B — vector (SVG, editable text)
 results/figure3_ld/Fig3_preview.png	visual_only	a187e20a924fbb5529d962615401b123	490722	present	Figure 3 A/B — raster preview (600 dpi)
-results/figure3_ld/Fig3B_T2D_reference_models.pdf	visual_only	be8da98b413c119933ea569dde1e465c	17641	present	Figure 3B standalone — vector (PDF)
-results/figure3_ld/Fig3B_T2D_reference_models.svg	visual_only	94d32cd877777ee583adbbcd7837633c	8655	present	Figure 3B standalone — vector (SVG)
+results/figure3_ld/Fig3B_T2D_reference_models.pdf	visual_only	d9724caa5005ec7c2f0acb611d439a0e	17641	present	Figure 3B standalone — vector (PDF)
+results/figure3_ld/Fig3B_T2D_reference_models.svg	visual_only	0121848445b13407c904436127e03ebf	8655	present	Figure 3B standalone — vector (SVG)
 results/figure3_ld/Fig3B_T2D_reference_models.png	visual_only	223033b7221ea00fe2bf061d57da5b09	194704	present	Figure 3B standalone — raster (600 dpi)
 results/figure3_ld/Fig3B_T2D_reference_models_source_data.tsv	main	bce8df68561f30d5081eeef303b91ed6	2182	present	Figure 3B — rendered numeric data (3 reference models)
-results/figure3_ld/verification_tiff.json	main	a54d3a5cde461a104ad8ec2ddad678ae	597	present	Figure 3 A/B — TIFF/typography/stroke audit record
-.gitignore	deposit	c54e3250eb2f81fb3bc3b4570b1c08de	692	present	Excludes bytecode + regenerable recomputed TSVs (byte-identical to frozen)
-results/figure3_ld/recomputed/comparison_report.md	main	5c52221a1675ad22ee61eddd4b106e33	6564	present	Figure 3 A/B — re-run vs frozen comparison evidence (80 PASS / 0 FAIL)
+results/figure3_ld/verification_tiff.json	main	7f143849764f5143b7b4a4d20d28ea79	655	present	Figure 3 A/B — TIFF/typography/stroke audit record
+.gitignore	deposit	24912003e17ad2d73e83dbc9a37dcf4d	755	present	Excludes bytecode + regenerable recomputed TSVs (byte-identical to frozen)
+results/figure3_ld/recomputed/comparison_report.md	main	281296b656aa2e350dbfe70356a54f1d	7148	present	Figure 3 A/B — re-run vs frozen comparison evidence (6 tables + recorder gate, 82 PASS / 0 FAIL)
 results/figure3_ld/recomputed/phase6_exact_vs_approx_contrib.tsv	main	999ae1e0ed2fd9c02ccc82e82167c582	307	present	Figure 3 A/B — exact-vs-approximate exclusion diagnostic

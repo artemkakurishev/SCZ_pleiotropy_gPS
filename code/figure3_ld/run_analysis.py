@@ -190,6 +190,53 @@ def tol6(x):
     return 0.5 * 10 ** (math.floor(math.log10(abs(x))) - 5)
 
 
+def build_realised_gps_table(gene_ids, sizes_b, pool_z1, scz_target):
+    """Realised gene-level gPS matching diagnostic (39 risk-occupied bins).
+
+    Transferred VERBATIM from the executed notebook (sess_bdbf02ac8d9f, cells 75-76).
+    `gene_ids` is the (B, max_size) -1-padded array of realised pool-gene positional
+    indices recorded by run_block_null_rec; `sizes_b` is the recorder's per-set sizes.
+    No parameter is adjusted; rel_dev uses the RAW null mean (code wins over the
+    data-dictionary note that wrongly described it as mean_minus_obs / null_mean).
+    """
+    pool = pool_z1.reset_index(drop=True)
+    pool_gps_int = pool['gPS'].astype(int).to_numpy()
+
+    risk = scz_target
+    risk_gps_int = risk['gPS'].astype(int).to_numpy()
+    tgt = pd.Series(risk_gps_int).value_counts().sort_index()
+    bins = tgt.index.to_numpy()                      # 39 risk-occupied bins
+
+    # FULL integer grid over pool support (pool may occupy bins the risk set does not)
+    all_bins = np.arange(0, max(pool_gps_int.max(), bins.max()) + 1)
+
+    B = gene_ids.shape[0]
+    gps_flat = np.where(gene_ids >= 0, pool_gps_int[np.clip(gene_ids, 0, None)], -1)
+    Hfull = np.zeros((B, len(all_bins)), dtype=np.int32)
+    for b in range(B):
+        row = gps_flat[b][gene_ids[b] >= 0]
+        Hfull[b] = np.bincount(row, minlength=len(all_bins))[:len(all_bins)]
+
+    assert np.all(Hfull.sum(1) == sizes_b), 'histogram totals != recorded sizes'
+
+    risk_mask = np.isin(all_bins, bins)
+    Hr = Hfull[:, risk_mask]                       # null counts on the 39 risk-occupied bins
+    obs = tgt.to_numpy()
+
+    rows = []
+    for j, g in enumerate(bins):
+        col = Hr[:, j]
+        m = col.mean()
+        rows.append(dict(gps_bin=int(g), observed=int(obs[j]),
+                         null_mean=round(m, 3), null_sd=round(col.std(ddof=1), 3),
+                         null_p2_5=np.percentile(col, 2.5), null_p97_5=np.percentile(col, 97.5),
+                         null_min=col.min(), null_max=col.max(),
+                         mean_minus_obs=round(m - obs[j], 3),
+                         rel_dev=round((m - obs[j]) / obs[j], 4) if obs[j] > 0 else np.nan,
+                         obs_within_95=bool(np.percentile(col, 2.5) <= obs[j] <= np.percentile(col, 97.5))))
+    return pd.DataFrame(rows)
+
+
 # ----------------------------------------------------------------------------- pipeline
 def main() -> int:
     ap = argparse.ArgumentParser(description=__doc__)
@@ -318,6 +365,40 @@ def main() -> int:
     print(f"  10k null done in {time.time() - t0:.0f}s: sizes {sizes_b.mean():.1f}"
           f"+/-{sizes_b.std():.1f} [{sizes_b.min()},{sizes_b.max()}], "
           f"redraws {redraws_b}, borrowed/set {borrowed_b.mean():.1f}")
+
+    # -------------------------------------- recorder pass (Amendment 1, gated) ----
+    # run_block_null_rec is run as an ADDITIONAL pass with the SAME seed; the primary
+    # path above (run_block_null) is left untouched so the verified 80/80 byte-identity
+    # is never put at risk. The recorder returns identical null sets PLUS per-set
+    # gene_ids. Before those gene_ids are used for anything we GATE on bit-identity to
+    # the primary null (named check "recorder_bit_identity"); on any drift we halt and
+    # report the magnitude — no parameter is adjusted.
+    print("\n== 5b-rec. Recorder pass for the realised-gene-id diagnostic (gated) ==")
+    t0 = time.time()
+    rec_primary = run_block_null_rec(
+        SEEDS["step3_block_10k"], B_BLK, S8["target_freq"], N_TARGET, S8, risk_loggps,
+        compute_ks=True, label="block10k-rec", progress_every=5000)
+    d_sizes = int(np.abs(rec_primary["sizes"] - sizes_b).max())
+    d_means = float(np.abs(rec_primary["means"] - means_b).max())
+    d_pcts = float(np.abs(rec_primary["pcts"] - pcts_b8).max())
+    recorder_ok = (d_sizes == 0) and (d_means == 0.0) and (d_pcts == 0.0)
+    RECORDER_CHECK = (
+        "- recorder_bit_identity: additional `run_block_null_rec` pass vs primary "
+        "`run_block_null` (same seed, spawn_key (2,)) — max|Δsizes| "
+        f"{d_sizes}, max|Δmeans| {d_means:.3e}, max|Δpcts| {d_pcts:.3e} -> "
+        + ("PASS (bit-identical; recorded gene_ids are the primary null's)"
+           if recorder_ok else "**FAIL** (recorder drifted)"))
+    print(f"  recorder pass done in {time.time() - t0:.0f}s | {RECORDER_CHECK}")
+    if not recorder_ok:
+        (OUTDIR / "comparison_report.md").write_text(
+            "# Comparison: recomputed vs frozen LD-block tables\n\n"
+            "## Recorder bit-identity gate (Amendment 1)\n" + RECORDER_CHECK + "\n\n"
+            "The recorder pass drifted from the primary null, so its gene_ids cannot "
+            "be trusted as the primary null's realised sets. Halting before the "
+            "realised-gene-id table is built. No parameter was adjusted.\n")
+        print("ERROR: recorder drifted from the primary null — see comparison_report.md. "
+              "Halting; no parameter adjusted.", file=sys.stderr)
+        return 1
 
     # ------------------------------------------------------ size-only (10k, 8x)
     print("\n== 5c. LD-block size-only null (no gPS conditioning), B=10,000 ==")
@@ -645,10 +726,21 @@ def main() -> int:
                     index=False, float_format="%.6f")
     print("  null_axis_percentages_block_gps_matched.tsv (10,000 x 9)")
 
+    # ---- Table_realised_genelevel_gps.tsv (39 occupied bins; cells 75-76) ----
+    # Built from the recorder pass's gene_ids (bit-identity to the primary null gated
+    # in step 5b-rec). Written with pandas default formatting (no float_format), exactly
+    # as the frozen file was.
+    perbin = build_realised_gps_table(rec_primary["gene_ids"], rec_primary["sizes"],
+                                      pool_z1, scz_target)
+    perbin.to_csv(OUTDIR / "Table_realised_genelevel_gps.tsv", sep="\t", index=False)
+    n_out95 = int((~perbin["obs_within_95"]).sum())
+    print(f"  Table_realised_genelevel_gps.tsv ({len(perbin)} rows; "
+          f"{n_out95} bins outside the null 95% envelope)")
+
     # ============================================================ comparison
     print("\n== 7. Comparison vs frozen tables ==")
     report = compare_to_frozen(boot8, pcts_b8, rec_size, exact_runs, scz_obs8,
-                               axis_members8, uni_ids)
+                               axis_members8, uni_ids, recorder_check=RECORDER_CHECK)
 
     # Historical-TVS provenance note: committed submission-time gene-wise table
     # vs the final re-executed gene-wise null (informational, not a gate).
@@ -686,13 +778,19 @@ def main() -> int:
 
 # ----------------------------------------------------------------------------- comparison
 def compare_to_frozen(boot8, pcts_b8, rec_size, exact_runs, scz_obs8, axis_members8,
-                      uni_ids) -> str:
+                      uni_ids, recorder_check="") -> str:
     """Compare recomputed outputs against the SHA256-gated frozen tables.
 
     Tolerances: Table_S stored at 4 dp; other tables at 6 significant figures
-    (tol6); the null matrix is compared bit-for-bit before formatting.
+    (tol6); the null matrix is compared bit-for-bit before formatting. The realised
+    gene-level gPS table is compared by file sha256 (byte-identity) with a per-cell
+    pass/fail tally.
     """
     lines = ["# Comparison: recomputed vs frozen LD-block tables", ""]
+    if recorder_check:
+        lines.append("## Recorder bit-identity gate (Amendment 1)")
+        lines.append(recorder_check)
+        lines.append("")
     lines.append("Frozen inputs verified against `data/figure3_ld/frozen/SHA256SUMS.txt` "
                  "before comparison.")
     ok = True
@@ -817,6 +915,43 @@ def compare_to_frozen(boot8, pcts_b8, rec_size, exact_runs, scz_obs8, axis_membe
                      + ("PASS (bit-identical at stored precision)" if bit
                         else "**FAIL**"))
         ok = ok and bit
+
+    # realised gene-level gPS table: file byte-identity (sha256) + per-cell tally.
+    # The frozen file was written with pandas default formatting (no float_format),
+    # so the standard is exact equality, not a storage tolerance.
+    lines.append("\n## Table_realised_genelevel_gps.tsv")
+    fz_real = FROZEN / "Table_realised_genelevel_gps.tsv"
+    rc_real = OUTDIR / "Table_realised_genelevel_gps.tsv"
+    fz_hash = hl.sha256(fz_real.read_bytes()).hexdigest()
+    rc_hash = hl.sha256(rc_real.read_bytes()).hexdigest()
+    byte_ok = fz_hash == rc_hash
+    lines.append(f"- byte-identity sha256: recomputed `{rc_hash}` vs frozen "
+                 f"`{fz_hash}` -> " + ("PASS" if byte_ok else "**FAIL**"))
+    fz_r = pd.read_csv(fz_real, sep="\t", dtype=str)
+    rc_r = pd.read_csv(rc_real, sep="\t", dtype=str)
+    if list(fz_r.columns) == list(rc_r.columns) and len(fz_r) == len(rc_r):
+        fz_v = fz_r.fillna("").to_numpy()
+        rc_v = rc_r.fillna("").to_numpy()
+        match = fz_v == rc_v
+        n_pass = int(match.sum())
+        n_tot = int(match.size)
+        lines.append(f"- per-cell tally: {n_pass}/{n_tot} cells identical "
+                     f"({len(fz_r)} rows x {len(fz_r.columns)} columns)")
+        if not match.all():
+            ok = False
+            bad = np.argwhere(~match)
+            for r, c in bad[:25]:
+                lines.append(f"  - **FAIL** cell (row {r}, column "
+                             f"'{fz_r.columns[c]}'): frozen {fz_v[r, c]!r} vs "
+                             f"recomputed {rc_v[r, c]!r}")
+            if len(bad) > 25:
+                lines.append(f"  - ... and {len(bad) - 25} further differing cells")
+    else:
+        lines.append(f"- **FAIL** shape/columns differ: frozen {fz_r.shape} "
+                     f"{list(fz_r.columns)} vs recomputed {rc_r.shape} "
+                     f"{list(rc_r.columns)}")
+        ok = False
+    ok = ok and byte_ok
 
     # gene-set identity summary
     lines.append("\n## Gene sets")
