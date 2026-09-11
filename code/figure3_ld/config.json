@@ -1,0 +1,84 @@
+{
+  "description": "LD-block stratified null analysis for Figure 3 A/B (PONE-D-26-36293 revision). All constants were transferred from the originally executed analysis code (sampler.py MD5 90a0ad89aba97e0b735c074fa9968270; shipped 03_fig3_bootstrap_fdr5.py MD5 d75c7dd6b2a2fa7d8003860eb4616b11; executed notebook sess_bdbf02ac8d9f). No parameter was tuned to match frozen outputs.",
+  "genome_build": "GRCh37/hg19 (autosomes identical); LDetect EUR blocks and NCBI37.3 gene locations",
+  "seed": {
+    "base_seed": 20260527,
+    "scheme": "numpy.random.SeedSequence(20260527); spawn-key identity makes spawn(6)[i] == spawn(16)[i] for i < 6",
+    "genewise_null": "np.random.default_rng(20260527) directly (shipped run_bootstrap code path)",
+    "block_standard_gps_10k": "SeedSequence(20260527).spawn(6)[2] (step name 'step3_block_10k'; identical to spawn(16)[2])",
+    "block_size_only_10k": "SeedSequence(20260527).spawn(16)[6]",
+    "block_exact_gps_minus_d_10k": "SeedSequence(20260527).spawn(16)[7..11] for T2D, CAD, Hypertension, Asthma, Prostate Ca"
+  },
+  "cohort": {
+    "z_threshold": 3.09,
+    "pool_threshold": 1.0,
+    "n_universe": 7707,
+    "n_risk_primary": 1022,
+    "n_target": 1016,
+    "n_pool": 3605,
+    "exclusions": {
+      "chrX": true,
+      "MHC": {"chr": "6", "start": 25000000, "stop": 35000000},
+      "17q21.31": {"chr": "17", "start": 43500000, "stop": 44900000}
+    },
+    "dedup": "keep max MAGMA Z per ensembl_id",
+    "shortfall_dropped_ids": ["ENSG00000183527", "ENSG00000132394", "ENSG00000196628", "ENSG00000112182", "ENSG00000187323", "ENSG00000138821"]
+  },
+  "axes": {
+    "membership_rule": "L2G score >= 0.5 AND parsed diseaseIds intersects axis ID set (disease-membership threshold; distinct from the gPS counting rule)",
+    "l2g_threshold": 0.5,
+    "primary5": ["T2D", "CAD", "Hypertension", "Asthma", "Prostate Ca"],
+    "exploratory3": ["Atrial Fib", "Gout", "OA"],
+    "disease_ids": {
+      "T2D": ["MONDO_0005148"],
+      "CAD": ["EFO_0001645"],
+      "Hypertension": ["EFO_0000537"],
+      "Asthma": ["MONDO_0004979"],
+      "Prostate Ca": ["EFO_0001663"],
+      "Atrial Fib": ["EFO_0000275"],
+      "Gout": ["EFO_0004274"],
+      "OA": ["EFO_0004616", "EFO_1000786", "MONDO_0005178"]
+    },
+    "axis_n_in_universe": {"T2D": 869, "CAD": 272, "Hypertension": 356, "Asthma": 291, "Prostate Ca": 382}
+  },
+  "gps": {
+    "definition_implemented": "uniqueDiseases column of disease_ta_index_pandas.csv (Gentropy), fillna(0); equals the count of distinct diseases per gene in l2g_diseases_full.csv at its native score floor (~0.1), NOT the count at L2G >= 0.5",
+    "exact_exclusion_rule": "per-gene counted disease sets from l2g_diseases_full.csv exploded without any additional score filter; gPS^(-d)_i = |D_i \\ axis_ids|, clipped at 0; bins and per-bin gene-count targets rebuilt; 10,000 replicates per axis"
+  },
+  "ld_blocks": {
+    "source": "Berisa & Pickrell (2016) LDetect EUR partition, fourier_ls-all.bed, bitbucket.org/nygcresearch/ldetect-data",
+    "raw_bed_md5": "10167be5c416895f27aedf7485db05ae",
+    "n_blocks": 1703,
+    "gene_assignment": "midpoint of the MAGMA window (gene_annotation_table start/stop ARE the 35 kb upstream / 10 kb downstream window bounds); nearest-block fallback within 1 Mb across gaps; 100% of 7,707 universe genes assigned"
+  },
+  "sampler": {
+    "unit": "LDetect EUR LD block",
+    "binning": "blocks binned by mean log2(gPS+1) of their pool genes, assigned to nearest risk-set integer-gPS bin in log2(gPS+1) space",
+    "crossing_block": "unbiased randomized rounding: include crossing block with probability (target - achieved)/block_size",
+    "neighbour_borrowing": "only on supply exhaustion, from nearest bin(s) in log2(gPS+1) space; single crossing decision across the borrow sequence",
+    "acceptance_window": "|total genes - 1016| <= 25, else redraw (cap 50 x n_sets)",
+    "ks_gate": "none (KS computed as diagnostic only)"
+  },
+  "replicates": {"genewise": 1000, "block": 10000},
+  "p_value": "p = min(1, 2*min(b_le+1, b_ge+1)/(B+1)); floor 2e-4 at B=10,000; never 0",
+  "fdr": "Benjamini-Hochberg across the 5 primary axes, computed separately within each specification (q_BH5); exploratory axes excluded from the primary family",
+  "mc_intervals": "Clopper-Pearson 95% interval on min(b_le, b_ge)/B propagated through the p formula and the BH step (p_mc_lo/hi, q_BH5_mc_lo/hi)",
+  "inputs": {
+    "repo_inputs": {
+      "inputs/gene_annotation_table.tsv": "6b308a7d300f9de33f6f458fdab9c79a",
+      "inputs/disease_ta_index_pandas.csv": "03b7c1e7fc211cd69c6d00141bff20b0",
+      "inputs/l2g_diseases_full.csv": "f426e77b1bb71e4136d2577dc4dd6215"
+    },
+    "ld_inputs": {
+      "data/figure3_ld/inputs/gene_block_map.tsv": "1b95b0819be4ed2f2d4e2853d57aef90",
+      "data/figure3_ld/inputs/ldetect_EUR_blocks.tsv": "929ffdc4b95beb6ba54df88f904aa0d1",
+      "data/figure3_ld/inputs/NCBI37.3.gene.loc": "7f6ffd6abb0b02c94a629e74c036d5f6"
+    },
+    "code_md5": {
+      "code/figure3_ld/sampler.py": "90a0ad89aba97e0b735c074fa9968270",
+      "code/figure3_ld/sampler_v5.py": "302eceb92675ef883356c0e8b74721dd",
+      "code/03_fig3_bootstrap_fdr5.py": "d75c7dd6b2a2fa7d8003860eb4616b11"
+    }
+  },
+  "frozen_tables_sha256": "data/figure3_ld/frozen/SHA256SUMS.txt"
+}
