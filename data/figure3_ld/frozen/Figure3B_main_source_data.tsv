@@ -1,0 +1,6 @@
+axis	axis_display	observed_pct	null_mean_pct	null_sd	null_band_lo_q0.025	null_band_hi_q0.975	resid_pp	p_two	q_BH5	floor_flag
+T2D	Type 2 diabetes	13.3858	12.41	0.786251	10.87167	13.962608	0.975853	0.217778	0.272223	
+CAD	Coronary artery disease	2.85433	5.69539	0.431613	4.88758	6.54941	-2.84106	0.00019998	0.00049995	b_min=0: p at replicate floor
+Hypertension	Hypertension	5.41339	5.91598	0.48	5.014753	6.89991	-0.502592	0.29917	0.29917	
+Asthma	Asthma	3.74016	5.30657	0.559076	4.295631	6.44851	-1.56641	0.00139986	0.0023331	
+Prostate Ca	Prostate cancer	3.05118	6.30725	0.639903	5.11805	7.586360000000001	-3.25607	0.00019998	0.00049995	b_min=0: p at replicate floor

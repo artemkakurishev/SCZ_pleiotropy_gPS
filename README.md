@@ -23,8 +23,14 @@ pleiotropy_deposit/
 ├── code/
 │   ├── 01_fig1_gene_property.py        Figure 1 — 9-trait β_std forest
 │   ├── 02_fig2_hexbin_gradient.py      Figure 2 — LOEUF × gPS hexbin (SCZ−BD ΔZ)
-│   ├── 03_fig3_bootstrap_fdr5.py       Figure 3 — gPS-matched bootstrap stats
-│   ├── 03_fig3_make_figure.py          Figure 3 — render bootstrap figure
+│   ├── 03_fig3_bootstrap_fdr5.py       Figure 3 — gPS-matched bootstrap stats (HISTORICAL)
+│   ├── 03_fig3_make_figure.py          Figure 3 — render bootstrap figure (HISTORICAL)
+│   ├── figure3_ld/                     Figure 3 A/B — LD-block stratified null (CURRENT)
+│   │   ├── run_analysis.py                 full re-run + frozen-table comparison
+│   │   ├── plot_figure3.py                 figure rendering (fast / from-recomputed)
+│   │   ├── config.json                     all analysis constants, transferred verbatim
+│   │   ├── sampler.py                      LD-block sampler (original, unchanged)
+│   │   └── sampler_v5.py                   v5 sampler extensions (original, unchanged)
 │   ├── 04_fig4_schema_targets.py       Figure 4 — SCHEMA × gPS × MAGMA Z bubble plot
 │   ├── 05_fig5_loo_sensitivity.py      Figure 5 — LOO line plot (SCZ vs BD)
 │   ├── magma_pipeline.md               MAGMA commands as executed for the deposit
@@ -41,10 +47,17 @@ pleiotropy_deposit/
 │   ├── loeuf_gnomad_v41.tsv                    gnomAD v4.1 LOEUF (Ensembl-anchored, for Figure 2)
 │   ├── EXTERNAL_INPUTS_README.md               (per-file provenance walk-through)
 │   └── SCHEMA_absent_from_MAGMA.md             (the 5 SCHEMA genes absent from MAGMA)
+├── data/figure3_ld/
+│   ├── inputs/                         (LD-block inputs: gene_block_map, ldetect_EUR_blocks,
+│   │                                    NCBI37.3.gene.loc + provenance.md)
+│   └── frozen/                         (frozen revision tables + SHA256SUMS.txt)
+├── docs/
+│   └── figure3_ld_methods.md           (Figure 3 A/B method as executed + commands)
 ├── metadata/
 │   ├── inputs_manifest.tsv             (per-input provenance + MD5 ground truth)
 │   └── requirements.txt                (full transitive freeze; see ../requirements.txt for top-level pins)
 ├── results/                            (auto-generated; one .pdf, .svg, .png + data.tsv per figure)
+│   └── figure3_ld/                     (Figure 3 A/B: Fig3.tif/pdf/svg + recomputed/)
 ├── MANIFEST.tsv                        (per-file MD5 + role manifest for the deposit)
 ├── README.md                           (this file)
 ├── requirements.txt                    (Python 3.11 pin set; see metadata/ for full freeze)
@@ -67,6 +80,44 @@ Outputs land in `results/`. Figures are emitted as PDF (vector), SVG
 written as a tab-separated table next to each figure, e.g.
 `figure1_gene_property_data.tsv`.
 
+## Figure 3: which calculation was used before, and which creates it now
+
+Figure 3 changed between submission and revision. Both pipelines are kept.
+
+- **Historical (submission):** `code/03_fig3_bootstrap_fdr5.py` +
+  `code/03_fig3_make_figure.py` — a **gene-wise** gPS-matched bootstrap
+  (1,000 replicates), writing `results/figure3_bootstrap_*`. These files are
+  preserved unchanged as the record of the submitted analysis. The committed
+  `results/figure3_bootstrap_stats.tsv` is the submission-time table and
+  differs slightly from the final re-executed gene-wise null (see
+  `docs/figure3_ld_methods.md`).
+- **Current (revision, creates Figure 3 A/B):** `code/figure3_ld/` — an
+  **LD-block stratified** null (LDetect EUR blocks, 10,000 replicates) with
+  three reference models (size-only / standard gPS / exact gPS excluding the
+  axis disease). Full method: `docs/figure3_ld_methods.md`.
+
+Two modes (from the repository root):
+
+```bash
+# (a) Fast — render Figure 3 from the frozen, SHA256-verified tables (seconds)
+python code/figure3_ld/plot_figure3.py
+
+# (b) Full — re-run the whole analysis, compare to the frozen tables, then render
+python code/figure3_ld/run_analysis.py --full
+python code/figure3_ld/plot_figure3.py --from-recomputed
+```
+
+The full re-run writes `results/figure3_ld/recomputed/` and halts on any
+discrepancy with the frozen tables beyond storage precision; the
+`--from-recomputed` figure mode refuses to plot from an unverified
+recomputation. Executed end-to-end for this deposit, all six recomputed
+tables match the frozen ones — five byte-identical at storage precision, and
+the realised gene-level gPS diagnostic table
+(`Table_realised_genelevel_gps.tsv`, 39 occupied bins) byte-identical
+(429/429 cells). Figure 3 outputs land in
+`results/figure3_ld/` (`Fig3.tif/.pdf/.svg`, a standalone Panel B, and the
+Panel-B source table).
+
 ## MD5 fail-fast policy
 
 Every script declares its inputs with an `INPUTS` dict that pins each
@@ -86,6 +137,9 @@ To accept a deliberate upstream change:
 | Output | Bit-stable across runs? |
 |---|---|
 | `figure3_bootstrap_stats.tsv` | **Yes** (NumPy `default_rng(seed=20260527)`, fixed N_ITER=1000) |
+| `figure3_ld/recomputed/*.tsv` | **Yes** — byte-identical to `data/figure3_ld/frozen/` (SeedSequence(20260527), fixed replicate counts) |
+| `figure3_ld/Fig3.{tif,pdf,svg}` | **Values yes, pixels no.** Plotted numbers are assertion-locked to the tables; raster pixels depend on the installed Arial-metric font (Arimo here), and PDF/SVG bytes embed a build timestamp. |
+| `figure3_ld/Fig3B_..._source_data.tsv` | **Numeric content yes.** The `source_file` provenance string records the rendering mode (frozen vs recomputed); all numeric cells are identical across modes. |
 | All other `*_data.tsv`        | **Yes** (deterministic from inputs)                          |
 | `figure3_bootstrap_fdr5.{pdf,png,svg}` | **Yes** (no label repulsion, fixed layout) |
 | `figure1_*`, `figure5_*` figures | **Yes** (deterministic layout)                           |

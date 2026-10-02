@@ -1,0 +1,15 @@
+# Python bytecode
+__pycache__/
+*.pyc
+
+# Recomputed LD-block tables: regenerable via
+#   python code/figure3_ld/run_analysis.py --full
+# and verified byte-identical to data/figure3_ld/frozen/ (see
+# results/figure3_ld/recomputed/comparison_report.md, which IS committed).
+# Only the large regenerable TSVs are excluded; the comparison evidence stays.
+results/figure3_ld/recomputed/Figure3B_main_source_data.tsv
+results/figure3_ld/recomputed/Table_S_block_vs_gene_bootstrap.tsv
+results/figure3_ld/recomputed/Table_final_five_axis_exact_gps_minus_d.tsv
+results/figure3_ld/recomputed/Table_final_five_axis_sensitivity.tsv
+results/figure3_ld/recomputed/null_axis_percentages_block_gps_matched.tsv
+results/figure3_ld/recomputed/Table_realised_genelevel_gps.tsv
